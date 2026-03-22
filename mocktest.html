@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Mock Test – OnlyJobs</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Figtree:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --accent:#E85D04;--accent-light:#FFF3EB;--accent-dark:#C44D00;
+  --dark:#1A1A2E;--text:#2D2D3A;--muted:#6B7280;
+  --border:#E8EAF0;--bg:#fff;--bg2:#F7F8FC;--bg3:#F0F2F8;
+  --green:#059669;--green-light:#ECFDF5;
+  --blue:#1D4ED8;--blue-light:#EFF6FF;
+  --purple:#7C3AED;--purple-light:#F5F3FF;
+  --red:#DC2626;--red-light:#FEF2F2;
+  --radius:12px;--radius-sm:8px;
+}
+html{scroll-behavior:smooth;}
+body{font-family:'Figtree',sans-serif;color:var(--text);background:var(--bg3);font-size:15px;line-height:1.6;}
+
+/* ── NAV ── */
+header{background:#fff;border-bottom:1.5px solid var(--border);position:sticky;top:0;z-index:100;}
+.nav-inner{max-width:1280px;margin:0 auto;padding:0 24px;display:flex;align-items:center;gap:16px;height:62px;}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;flex-shrink:0;}
+.logo-icon{width:36px;height:36px;background:var(--accent);border-radius:8px;display:flex;align-items:center;justify-content:center;}
+.logo-icon svg{width:20px;height:20px;fill:#fff;}
+.logo-text{font-family:'Syne',sans-serif;font-weight:800;font-size:20px;color:var(--dark);}
+.logo-text span{color:var(--accent);}
+nav{display:flex;gap:4px;margin-left:12px;}
+nav a{font-size:13px;font-weight:500;color:var(--muted);text-decoration:none;padding:6px 12px;border-radius:6px;white-space:nowrap;transition:all .15s;}
+nav a:hover{background:var(--accent-light);color:var(--accent-dark);}
+nav a.active{background:var(--accent);color:#fff;}
+@media(max-width:900px){nav{display:none;}}
+
+/* ── PAGE ── */
+.page{max-width:1280px;margin:0 auto;padding:28px 24px;}
+
+/* ── SCREEN MANAGEMENT ── */
+.screen{display:none;}
+.screen.active{display:block;}
+
+/* ─────────────────────────────────────────
+   SCREEN 1 — SELECTOR
+───────────────────────────────────────── */
+.sel-hero{background:linear-gradient(135deg,var(--dark) 0%,#2D2D5E 100%);border-radius:20px;padding:40px;margin-bottom:28px;position:relative;overflow:hidden;}
+.sel-hero::before{content:'';position:absolute;right:-60px;top:-60px;width:280px;height:280px;background:rgba(255,255,255,0.03);border-radius:50%;}
+.sel-hero-tag{display:inline-flex;align-items:center;gap:6px;background:rgba(253,186,116,0.15);border:1px solid rgba(253,186,116,0.3);color:#FDBA74;padding:5px 14px;border-radius:20px;font-size:11px;font-weight:700;margin-bottom:14px;}
+.sel-hero h1{font-family:'Syne',sans-serif;font-size:clamp(24px,4vw,38px);font-weight:800;color:#fff;margin-bottom:8px;letter-spacing:-0.5px;}
+.sel-hero h1 span{color:#FDBA74;}
+.sel-hero p{color:#94A3B8;font-size:14.5px;max-width:540px;}
+.sel-stats{display:flex;gap:32px;margin-top:24px;flex-wrap:wrap;}
+.sel-stat-num{font-family:'Syne',sans-serif;font-size:22px;font-weight:800;color:#FDBA74;}
+.sel-stat-lbl{font-size:11.5px;color:#64748B;}
+
+.sel-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:28px;}
+@media(max-width:900px){.sel-grid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:480px){.sel-grid{grid-template-columns:1fr;}}
+
+.exam-card{background:#fff;border:2px solid var(--border);border-radius:var(--radius);padding:20px;cursor:pointer;transition:all .2s;text-align:left;position:relative;overflow:hidden;}
+.exam-card:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(0,0,0,0.1);}
+.exam-card.selected{border-color:var(--accent);}
+.exam-card .ec-icon{font-size:32px;margin-bottom:10px;}
+.exam-card .ec-name{font-family:'Syne',sans-serif;font-size:17px;font-weight:800;color:var(--dark);margin-bottom:4px;}
+.exam-card .ec-desc{font-size:12.5px;color:var(--muted);line-height:1.5;}
+.exam-card .ec-count{font-size:11px;font-weight:700;padding:2px 8px;border-radius:20px;display:inline-block;margin-top:8px;}
+.exam-card .ec-free{position:absolute;top:12px;right:12px;background:var(--green-light);color:var(--green);font-size:10px;font-weight:800;padding:2px 8px;border-radius:20px;}
+.exam-card .ec-pro{position:absolute;top:12px;right:12px;background:var(--purple-light);color:var(--purple);font-size:10px;font-weight:800;padding:2px 8px;border-radius:20px;}
+
+.sel-start-btn{width:100%;padding:16px;background:linear-gradient(135deg,#E85D04,#C44D00);color:#fff;border:none;border-radius:var(--radius);font-size:16px;font-weight:700;cursor:pointer;font-family:'Figtree',sans-serif;transition:opacity .15s;display:flex;align-items:center;justify-content:center;gap:10px;}
+.sel-start-btn:hover{opacity:.9;}
+.sel-start-btn:disabled{opacity:.5;cursor:not-allowed;}
+
+/* ── PLANS ── */
+.plans-section{margin-top:40px;}
+.plans-section h2{font-family:'Syne',sans-serif;font-size:22px;font-weight:800;color:var(--dark);text-align:center;margin-bottom:6px;}
+.plans-section p{text-align:center;color:var(--muted);font-size:14px;margin-bottom:24px;}
+.plans-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;max-width:680px;margin:0 auto;}
+@media(max-width:560px){.plans-grid{grid-template-columns:1fr;}}
+.plan-card{background:#fff;border:2px solid var(--border);border-radius:16px;padding:24px;position:relative;}
+.plan-card.featured{border-color:var(--accent);}
+.plan-badge{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,#E85D04,#7C3AED);color:#fff;font-size:11px;font-weight:800;padding:4px 16px;border-radius:20px;white-space:nowrap;}
+.plan-name{font-family:'Syne',sans-serif;font-size:16px;font-weight:800;color:var(--dark);margin-bottom:4px;}
+.plan-price{font-family:'Syne',sans-serif;font-size:32px;font-weight:800;color:var(--accent);line-height:1;}
+.plan-price span{font-size:14px;font-weight:500;color:var(--muted);}
+.plan-feats{list-style:none;margin:16px 0;display:flex;flex-direction:column;gap:8px;}
+.plan-feats li{display:flex;align-items:center;gap:8px;font-size:13.5px;}
+.plan-feats li::before{content:'✓';color:var(--green);font-weight:800;flex-shrink:0;}
+.plan-feats li.no::before{content:'✕';color:#D1D5DB;}
+.plan-feats li.no{color:#9CA3AF;}
+.plan-btn{width:100%;padding:12px;border-radius:8px;font-size:14px;font-weight:700;cursor:pointer;font-family:'Figtree',sans-serif;transition:all .15s;}
+.plan-btn-free{background:var(--bg2);color:var(--dark);border:1.5px solid var(--border);}
+.plan-btn-free:hover{background:var(--bg3);}
+.plan-btn-pro{background:linear-gradient(135deg,#E85D04,#C44D00);color:#fff;border:none;}
+.plan-btn-pro:hover{opacity:.9;}
+
+/* ─────────────────────────────────────────
+   SCREEN 2 — TEST
+───────────────────────────────────────── */
+.test-layout{display:grid;grid-template-columns:1fr 260px;gap:20px;align-items:start;}
+@media(max-width:900px){.test-layout{grid-template-columns:1fr;}}
+
+.test-card{background:#fff;border:1.5px solid var(--border);border-radius:var(--radius);overflow:hidden;}
+.test-topbar{background:linear-gradient(135deg,var(--dark),#2D2D5E);padding:16px 22px;display:flex;align-items:center;gap:16px;}
+.test-exam-name{font-family:'Syne',sans-serif;font-size:15px;font-weight:700;color:#fff;flex:1;}
+.test-timer{background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);padding:7px 16px;border-radius:8px;font-family:'Syne',sans-serif;font-size:16px;font-weight:800;color:#fff;min-width:80px;text-align:center;}
+.test-timer.warning{background:rgba(220,38,38,0.3);border-color:rgba(220,38,38,0.5);color:#FCA5A5;animation:timerBlink 1s infinite;}
+@keyframes timerBlink{0%,100%{opacity:1}50%{opacity:.6}}
+
+.test-progress-bar{height:4px;background:#F0F2F8;}
+.test-progress-fill{height:100%;background:linear-gradient(90deg,#E85D04,#7C3AED);transition:width .4s ease;}
+
+.test-body{padding:28px;}
+.q-counter{font-size:12px;font-weight:700;color:var(--muted);letter-spacing:.5px;margin-bottom:6px;}
+.q-text{font-size:17px;font-weight:600;color:var(--dark);line-height:1.55;margin-bottom:24px;}
+.q-options{display:flex;flex-direction:column;gap:10px;}
+.q-opt{display:flex;align-items:center;gap:14px;padding:14px 18px;border:2px solid var(--border);border-radius:10px;cursor:pointer;transition:all .15s;background:#fff;}
+.q-opt:hover:not(.disabled){border-color:var(--accent);background:var(--accent-light);}
+.q-opt.selected{border-color:var(--accent);background:var(--accent-light);}
+.q-opt.correct{border-color:var(--green);background:var(--green-light);}
+.q-opt.wrong{border-color:var(--red);background:var(--red-light);}
+.q-opt.disabled{cursor:default;}
+.q-opt-letter{width:32px;height:32px;border-radius:8px;background:var(--bg3);font-weight:700;font-size:14px;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .15s;}
+.q-opt.selected .q-opt-letter{background:var(--accent);color:#fff;}
+.q-opt.correct .q-opt-letter{background:var(--green);color:#fff;}
+.q-opt.wrong .q-opt-letter{background:var(--red);color:#fff;}
+.q-opt-text{font-size:14.5px;color:var(--dark);}
+.q-explanation{background:var(--blue-light);border:1px solid #BFDBFE;border-radius:8px;padding:12px 16px;margin-top:16px;font-size:13.5px;color:#1E40AF;line-height:1.6;display:none;}
+.q-explanation.show{display:block;}
+
+.test-footer{padding:16px 22px;border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;background:var(--bg2);}
+.tf-info{font-size:13px;color:var(--muted);}
+.tf-btns{display:flex;gap:10px;}
+.btn-skip{background:#fff;border:1.5px solid var(--border);color:var(--muted);padding:9px 20px;border-radius:8px;font-size:14px;font-weight:600;cursor:pointer;font-family:'Figtree',sans-serif;transition:all .15s;}
+.btn-skip:hover{border-color:var(--muted);}
+.btn-next{background:linear-gradient(135deg,#E85D04,#C44D00);color:#fff;border:none;padding:9px 24px;border-radius:8px;font-size:14px;font-weight:700;cursor:pointer;font-family:'Figtree',sans-serif;transition:opacity .15s;}
+.btn-next:hover{opacity:.9;}
+.btn-next:disabled{opacity:.5;cursor:not-allowed;}
+
+/* sidebar */
+.test-sidebar{}
+.test-sidebar-card{background:#fff;border:1.5px solid var(--border);border-radius:var(--radius);overflow:hidden;margin-bottom:14px;}
+.tsc-hdr{padding:12px 14px;border-bottom:1px solid var(--border);font-family:'Syne',sans-serif;font-size:13px;font-weight:700;color:var(--dark);}
+.q-palette{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;padding:12px 14px;}
+.qp-num{width:36px;height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;cursor:pointer;border:1.5px solid var(--border);background:#fff;color:var(--dark);transition:all .15s;}
+.qp-num.answered{background:var(--green-light);border-color:var(--green);color:var(--green);}
+.qp-num.skipped{background:var(--red-light);border-color:var(--red);color:var(--red);}
+.qp-num.current{background:var(--accent);border-color:var(--accent);color:#fff;}
+.qp-legend{padding:0 14px 12px;display:flex;flex-direction:column;gap:6px;}
+.qpl-item{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--muted);}
+.qpl-dot{width:12px;height:12px;border-radius:3px;flex-shrink:0;}
+
+/* ─────────────────────────────────────────
+   SCREEN 3 — RESULT
+───────────────────────────────────────── */
+.result-card{background:#fff;border:1.5px solid var(--border);border-radius:20px;overflow:hidden;max-width:680px;margin:0 auto;}
+.result-header{background:linear-gradient(135deg,var(--dark),#2D2D5E);padding:36px;text-align:center;}
+.result-score-ring{width:120px;height:120px;border-radius:50%;background:conic-gradient(#FDBA74 var(--pct),rgba(255,255,255,0.1) 0);display:flex;align-items:center;justify-content:center;margin:0 auto 16px;position:relative;}
+.result-score-ring::before{content:'';position:absolute;inset:10px;background:var(--dark);border-radius:50%;}
+.result-score-num{position:relative;z-index:1;font-family:'Syne',sans-serif;font-size:28px;font-weight:800;color:#FDBA74;}
+.result-title{font-family:'Syne',sans-serif;font-size:22px;font-weight:800;color:#fff;margin-bottom:6px;}
+.result-subtitle{color:#94A3B8;font-size:14px;}
+.result-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);}
+.rs-item{background:#fff;padding:18px 12px;text-align:center;}
+.rs-num{font-family:'Syne',sans-serif;font-size:20px;font-weight:800;color:var(--dark);}
+.rs-lbl{font-size:11px;color:var(--muted);margin-top:2px;}
+.result-body{padding:24px;}
+.result-rank-box{background:linear-gradient(135deg,var(--purple-light),var(--accent-light));border:1.5px solid #DDD6FE;border-radius:12px;padding:16px 20px;display:flex;align-items:center;gap:16px;margin-bottom:20px;}
+.rrb-icon{font-size:32px;}
+.rrb-info h3{font-family:'Syne',sans-serif;font-size:16px;font-weight:800;color:var(--dark);margin-bottom:2px;}
+.rrb-info p{font-size:13px;color:var(--muted);}
+.rrb-rank{font-family:'Syne',sans-serif;font-size:28px;font-weight:800;color:var(--purple);}
+.result-lb{margin-bottom:20px;}
+.result-lb h3{font-family:'Syne',sans-serif;font-size:15px;font-weight:700;color:var(--dark);margin-bottom:12px;}
+.lb-row{display:flex;align-items:center;gap:12px;padding:10px 14px;border-radius:8px;margin-bottom:6px;background:var(--bg2);}
+.lb-row.me{background:var(--accent-light);border:1.5px solid #FED7AA;}
+.lb-rank{font-weight:800;font-size:14px;width:24px;color:var(--muted);}
+.lb-name{flex:1;font-size:14px;font-weight:500;}
+.lb-score{font-weight:700;font-size:14px;color:var(--green);}
+.lb-time{font-size:12px;color:var(--muted);margin-left:4px;}
+.result-btns{display:flex;gap:12px;flex-wrap:wrap;}
+.rb-primary{flex:1;padding:13px;background:linear-gradient(135deg,#E85D04,#C44D00);color:#fff;border:none;border-radius:10px;font-size:14.5px;font-weight:700;cursor:pointer;font-family:'Figtree',sans-serif;}
+.rb-secondary{flex:1;padding:13px;background:var(--purple-light);color:var(--purple);border:none;border-radius:10px;font-size:14.5px;font-weight:700;cursor:pointer;font-family:'Figtree',sans-serif;}
+.result-upgrade{background:linear-gradient(135deg,var(--dark),#3730A3);border-radius:14px;padding:20px;margin-top:20px;text-align:center;}
+.result-upgrade h3{font-family:'Syne',sans-serif;font-size:16px;font-weight:800;color:#fff;margin-bottom:6px;}
+.result-upgrade p{font-size:13px;color:#94A3B8;margin-bottom:14px;}
+.upgrade-btn{display:inline-block;background:linear-gradient(135deg,#FDBA74,#F59E0B);color:var(--dark);padding:11px 28px;border-radius:8px;font-size:14px;font-weight:800;text-decoration:none;}
+
+/* PAYWALL OVERLAY */
+.paywall-overlay{display:none;position:fixed;inset:0;background:rgba(26,26,46,0.85);z-index:5000;align-items:center;justify-content:center;padding:20px;}
+.paywall-box{background:#fff;border-radius:20px;max-width:440px;width:100%;overflow:hidden;text-align:center;}
+.pwb-top{background:linear-gradient(135deg,var(--dark),#3730A3);padding:28px;}
+.pwb-top h2{font-family:'Syne',sans-serif;font-size:22px;font-weight:800;color:#fff;margin-bottom:8px;}
+.pwb-top p{font-size:13.5px;color:#94A3B8;}
+.pwb-body{padding:24px;}
+.pwb-price{font-family:'Syne',sans-serif;font-size:40px;font-weight:800;color:var(--accent);margin-bottom:4px;}
+.pwb-price span{font-size:16px;color:var(--muted);font-weight:500;}
+.pwb-feats{text-align:left;margin:16px 0;display:flex;flex-direction:column;gap:8px;}
+.pwb-feats li{display:flex;align-items:center;gap:8px;font-size:13.5px;list-style:none;}
+.pwb-feats li::before{content:'✓';color:var(--green);font-weight:800;}
+.pwb-btn{width:100%;padding:14px;background:linear-gradient(135deg,#E85D04,#C44D00);color:#fff;border:none;border-radius:10px;font-size:15px;font-weight:700;cursor:pointer;font-family:'Figtree',sans-serif;margin-bottom:10px;}
+.pwb-skip{background:none;border:none;color:var(--muted);font-size:13px;cursor:pointer;font-family:'Figtree',sans-serif;}
+
+@keyframes fadeInUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<header>
+  <div class="nav-inner">
+    <a href="index.html" class="logo">
+      <div class="logo-icon"><svg viewBox="0 0 24 24"><path d="M20 7H4C2.9 7 2 7.9 2 9v11c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V9c0-1.1-.9-2-2-2zm-9 8H7v-2h4v2zm6-4H7v-2h10v2z"/><path d="M16 1H8C6.9 1 6 1.9 6 3v3h12V3c0-1.1-.9-2-2-2z"/></svg></div>
+      <span class="logo-text">Only<span>Jobs</span></span>
+    </a>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="mocktest.html" class="active" style="background:var(--accent);color:#fff;">Mock Test</a>
+      <a href="#">Latest Jobs</a>
+      <a href="#">Results</a>
+      <a href="#">Admit Card</a>
+    </nav>
+  </div>
+</header>
+
+<div class="page">
+
+<!-- ══════════════════════════════════════
+     SCREEN 1 — EXAM SELECTOR
+══════════════════════════════════════ -->
+<div class="screen active" id="screen-select">
+
+  <div class="sel-hero">
+    <div class="sel-hero-tag">📝 India's #1 Govt Exam Practice Platform</div>
+    <h1>Practice. Rank. <span>Crack the Exam.</span></h1>
+    <p>Full-length mock tests for every major government exam — with live national rankings, detailed solutions, and personalized study insights.</p>
+    <div class="sel-stats">
+      <div><div class="sel-stat-num">500+</div><div class="sel-stat-lbl">Mock Tests</div></div>
+      <div><div class="sel-stat-num">1.2 Cr+</div><div class="sel-stat-lbl">Tests Taken</div></div>
+      <div><div class="sel-stat-num">Live</div><div class="sel-stat-lbl">Rankings</div></div>
+      <div><div class="sel-stat-num">₹99</div><div class="sel-stat-lbl">/month full access</div></div>
+    </div>
+  </div>
+
+  <div style="margin-bottom:16px;display:flex;align-items:center;justify-content:space-between;">
+    <h2 style="font-family:'Syne',sans-serif;font-size:18px;font-weight:800;color:var(--dark);">Choose Your Exam</h2>
+    <span style="font-size:13px;color:var(--muted);">Click to select, then start test</span>
+  </div>
+
+  <div class="sel-grid" id="exam-grid">
+    <button class="exam-card" data-exam="ssc_cgl" onclick="selectExam(this)">
+      <span class="ec-free">FREE</span>
+      <div class="ec-icon">📋</div>
+      <div class="ec-name">SSC CGL</div>
+      <div class="ec-desc">Combined Graduate Level — Tier I &amp; Tier II full mock</div>
+      <span class="ec-count" style="background:var(--accent-light);color:var(--accent-dark);">120 tests</span>
+    </button>
+    <button class="exam-card" data-exam="ssc_chsl" onclick="selectExam(this)">
+      <span class="ec-free">FREE</span>
+      <div class="ec-icon">📝</div>
+      <div class="ec-name">SSC CHSL</div>
+      <div class="ec-desc">Combined Higher Secondary Level — 10+2 posts</div>
+      <span class="ec-count" style="background:var(--blue-light);color:var(--blue);">80 tests</span>
+    </button>
+    <button class="exam-card" data-exam="railway_ntpc" onclick="selectExam(this)">
+      <span class="ec-free">FREE</span>
+      <div class="ec-icon">🚂</div>
+      <div class="ec-name">RRB NTPC</div>
+      <div class="ec-desc">Non-Technical Popular Categories — Graduate &amp; Intermediate</div>
+      <span class="ec-count" style="background:var(--green-light);color:var(--green);">200 tests</span>
+    </button>
+    <button class="exam-card" data-exam="sbi_po" onclick="selectExam(this)">
+      <span class="ec-pro">PRO</span>
+      <div class="ec-icon">🏦</div>
+      <div class="ec-name">SBI PO</div>
+      <div class="ec-desc">State Bank of India Probationary Officer — Prelims &amp; Mains</div>
+      <span class="ec-count" style="background:var(--purple-light);color:var(--purple);">85 tests</span>
+    </button>
+    <button class="exam-card" data-exam="upsc_cse" onclick="selectExam(this)">
+      <span class="ec-pro">PRO</span>
+      <div class="ec-icon">🏛️</div>
+      <div class="ec-name">UPSC CSE</div>
+      <div class="ec-desc">Civil Services Exam — Prelims GS Paper I &amp; CSAT</div>
+      <span class="ec-count" style="background:var(--blue-light);color:var(--blue);">48 tests</span>
+    </button>
+    <button class="exam-card" data-exam="railway_alp" onclick="selectExam(this)">
+      <span class="ec-free">FREE</span>
+      <div class="ec-icon">🔧</div>
+      <div class="ec-name">RRB ALP</div>
+      <div class="ec-desc">Assistant Loco Pilot — CBT Stage 1 &amp; 2</div>
+      <span class="ec-count" style="background:var(--green-light);color:var(--green);">60 tests</span>
+    </button>
+  </div>
+
+  <div style="max-width:520px;margin:0 auto 40px;">
+    <button class="sel-start-btn" id="start-btn" onclick="startTest()" disabled>
+      <svg width="20" height="20" fill="#fff" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+      Select an Exam to Start Free Trial
+    </button>
+    <p style="text-align:center;font-size:12.5px;color:var(--muted);margin-top:10px;">Free trial: 10 questions · No login required · Results + ranking included</p>
+  </div>
+
+  <!-- PLANS SECTION -->
+  <div class="plans-section" id="plans">
+    <h2>Simple, Affordable Pricing</h2>
+    <p>Start free. Upgrade when you're ready to go all-in.</p>
+    <div class="plans-grid">
+      <div class="plan-card">
+        <div class="plan-name">Free</div>
+        <div class="plan-price">₹0 <span>/forever</span></div>
+        <ul class="plan-feats">
+          <li>10 questions per exam</li>
+          <li>Basic score report</li>
+          <li>National ranking</li>
+          <li class="no">Full-length mock tests</li>
+          <li class="no">Detailed solutions</li>
+          <li class="no">Progress tracking</li>
+          <li class="no">Previous year papers</li>
+        </ul>
+        <button class="plan-btn plan-btn-free" onclick="startTest()">Start Free</button>
+      </div>
+      <div class="plan-card featured">
+        <div class="plan-badge">🔥 Most Popular</div>
+        <div class="plan-name">Pro</div>
+        <div class="plan-price">₹99 <span>/month</span></div>
+        <ul class="plan-feats">
+          <li>Unlimited mock tests</li>
+          <li>All 500+ tests unlocked</li>
+          <li>Full detailed solutions</li>
+          <li>Progress & analytics</li>
+          <li>Previous year papers</li>
+          <li>Topic-wise practice</li>
+          <li>Live national ranking</li>
+        </ul>
+        <button class="plan-btn plan-btn-pro" onclick="showPaywall()">Get Pro Access</button>
+      </div>
+    </div>
+    <p style="text-align:center;font-size:12.5px;color:var(--muted);margin-top:14px;">Cancel anytime · Secure payment via UPI / Card / NetBanking</p>
+  </div>
+
+</div>
+
+<!-- ══════════════════════════════════════
+     SCREEN 2 — TEST IN PROGRESS
+══════════════════════════════════════ -->
+<div class="screen" id="screen-test">
+  <div class="test-layout">
+
+    <!-- MAIN QUESTION -->
+    <div>
+      <div class="test-card">
+        <div class="test-topbar">
+          <span class="test-exam-name" id="test-exam-label">SSC CGL – General Awareness</span>
+          <div class="test-timer" id="timer">20:00</div>
+        </div>
+        <div class="test-progress-bar">
+          <div class="test-progress-fill" id="progress-fill" style="width:10%;"></div>
+        </div>
+        <div class="test-body">
+          <div class="q-counter" id="q-counter">QUESTION 1 OF 10</div>
+          <div class="q-text" id="q-text">Loading question...</div>
+          <div class="q-options" id="q-options"></div>
+          <div class="q-explanation" id="q-explanation"></div>
+        </div>
+        <div class="test-footer">
+          <span class="tf-info" id="tf-answered">0 answered</span>
+          <div class="tf-btns">
+            <button class="btn-skip" onclick="skipQuestion()">Skip</button>
+            <button class="btn-next" id="btn-next" onclick="nextQuestion()" disabled>Next →</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SIDEBAR -->
+    <div class="test-sidebar">
+      <div class="test-sidebar-card">
+        <div class="tsc-hdr">Question Palette</div>
+        <div class="q-palette" id="q-palette"></div>
+        <div class="qp-legend">
+          <div class="qpl-item"><div class="qpl-dot" style="background:var(--green-light);border:1.5px solid var(--green);"></div>Answered</div>
+          <div class="qpl-item"><div class="qpl-dot" style="background:var(--red-light);border:1.5px solid var(--red);"></div>Skipped</div>
+          <div class="qpl-item"><div class="qpl-dot" style="background:var(--accent);"></div>Current</div>
+          <div class="qpl-item"><div class="qpl-dot" style="background:#fff;border:1.5px solid var(--border);"></div>Not visited</div>
+        </div>
+      </div>
+      <div class="test-sidebar-card" style="padding:14px;">
+        <div style="font-size:12px;font-weight:700;color:var(--muted);margin-bottom:10px;">EXAM INFO</div>
+        <div style="display:flex;flex-direction:column;gap:8px;">
+          <div style="display:flex;justify-content:space-between;font-size:13px;"><span style="color:var(--muted);">Total Questions</span><span style="font-weight:700;">10 (free)</span></div>
+          <div style="display:flex;justify-content:space-between;font-size:13px;"><span style="color:var(--muted);">Marking</span><span style="font-weight:700;">+2 / -0.5</span></div>
+          <div style="display:flex;justify-content:space-between;font-size:13px;"><span style="color:var(--muted);">Total Marks</span><span style="font-weight:700;">20</span></div>
+          <div style="display:flex;justify-content:space-between;font-size:13px;"><span style="color:var(--muted);">Time Limit</span><span style="font-weight:700;">20 min</span></div>
+        </div>
+        <button onclick="submitTest()" style="width:100%;margin-top:14px;padding:10px;background:var(--red-light);color:var(--red);border:1.5px solid #FECACA;border-radius:8px;font-size:13px;font-weight:700;cursor:pointer;font-family:'Figtree',sans-serif;">Submit Test</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     SCREEN 3 — RESULT
+══════════════════════════════════════ -->
+<div class="screen" id="screen-result">
+  <div class="result-card">
+    <div class="result-header">
+      <div class="result-score-ring" id="score-ring" style="--pct:0deg;">
+        <span class="result-score-num" id="score-pct">0%</span>
+      </div>
+      <div class="result-title" id="result-title">Test Completed!</div>
+      <div class="result-subtitle" id="result-subtitle">SSC CGL · General Awareness</div>
+    </div>
+    <div class="result-stats">
+      <div class="rs-item"><div class="rs-num" id="rs-correct" style="color:var(--green);">0</div><div class="rs-lbl">Correct</div></div>
+      <div class="rs-item"><div class="rs-num" id="rs-wrong" style="color:var(--red);">0</div><div class="rs-lbl">Wrong</div></div>
+      <div class="rs-item"><div class="rs-num" id="rs-skipped" style="color:var(--muted);">0</div><div class="rs-lbl">Skipped</div></div>
+      <div class="rs-item"><div class="rs-num" id="rs-score" style="color:var(--accent);">0</div><div class="rs-lbl">Score</div></div>
+    </div>
+    <div class="result-body">
+      <div class="result-rank-box">
+        <div class="rrb-icon">🏆</div>
+        <div class="rrb-info" style="flex:1;">
+          <h3>Your National Rank</h3>
+          <p>Among all users who took this test today</p>
+        </div>
+        <div class="rrb-rank" id="result-rank">#142</div>
+      </div>
+      <div class="result-lb">
+        <h3>Today's Leaderboard</h3>
+        <div class="lb-row"><span class="lb-rank">🥇</span><span class="lb-name">Rahul S., Lucknow</span><span class="lb-score">19/20</span><span class="lb-time">12:34</span></div>
+        <div class="lb-row"><span class="lb-rank">🥈</span><span class="lb-name">Priya M., Patna</span><span class="lb-score">18/20</span><span class="lb-time">14:12</span></div>
+        <div class="lb-row"><span class="lb-rank">🥉</span><span class="lb-name">Amit K., Bhopal</span><span class="lb-score">18/20</span><span class="lb-time">15:02</span></div>
+        <div class="lb-row me"><span class="lb-rank" id="my-rank-pos">142</span><span class="lb-name">You</span><span class="lb-score" id="my-score-lb">0/20</span><span class="lb-time" id="my-time-lb">—</span></div>
+      </div>
+      <div class="result-btns">
+        <button class="rb-primary" onclick="restartTest()">🔁 Retry Test</button>
+        <button class="rb-secondary" onclick="goHome()">📋 All Exams</button>
+      </div>
+      <div class="result-upgrade">
+        <h3>Unlock 500+ Full-Length Tests</h3>
+        <p>Get detailed solutions, unlimited practice &amp; track your progress to the top.</p>
+        <a href="#plans" onclick="goHome()" class="upgrade-btn">Get Pro @ ₹99/month →</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div><!-- /page -->
+
+<!-- PAYWALL MODAL -->
+<div class="paywall-overlay" id="paywall" onclick="hidePaywall(event)">
+  <div class="paywall-box">
+    <div class="pwb-top">
+      <div style="font-size:36px;margin-bottom:10px;">🔐</div>
+      <h2>Unlock Full Access</h2>
+      <p>This exam requires Pro. Upgrade to access 500+ full-length mock tests.</p>
+    </div>
+    <div class="pwb-body">
+      <div class="pwb-price">₹99 <span>/month</span></div>
+      <div style="font-size:12px;color:var(--muted);margin-bottom:12px;">≈ ₹3.30/day · Less than a chai ☕</div>
+      <ul class="pwb-feats">
+        <li>All 500+ mock tests unlocked</li>
+        <li>Full detailed solutions for every Q</li>
+        <li>Live national ranking board</li>
+        <li>Progress analytics dashboard</li>
+        <li>Previous year question papers</li>
+        <li>Topic-wise practice sets</li>
+      </ul>
+      <button class="pwb-btn">🚀 Subscribe @ ₹99/month</button>
+      <button class="pwb-skip" onclick="hidePaywall()">Maybe later</button>
+    </div>
+  </div>
+</div>
+
+<script>
+// ── QUESTION BANK ──
+const QB = {
+  ssc_cgl:[
+    {q:"Who was the first Prime Minister of India?",opts:["Sardar Vallabhbhai Patel","B.R. Ambedkar","Jawaharlal Nehru","Rajendra Prasad"],ans:2,exp:"Jawaharlal Nehru served as India's first Prime Minister from 1947 until 1964."},
+    {q:"The Preamble of the Indian Constitution was amended by which constitutional amendment?",opts:["42nd Amendment","44th Amendment","52nd Amendment","86th Amendment"],ans:0,exp:"The 42nd Constitutional Amendment Act, 1976 added the words 'Socialist', 'Secular' and 'Integrity' to the Preamble."},
+    {q:"Which planet is known as the 'Red Planet'?",opts:["Jupiter","Venus","Mars","Saturn"],ans:2,exp:"Mars is called the Red Planet because of iron oxide (rust) on its surface giving it a reddish appearance."},
+    {q:"The Battle of Plassey was fought in which year?",opts:["1757","1764","1798","1845"],ans:0,exp:"The Battle of Plassey was fought on June 23, 1757, and was a decisive British East India Company victory over Nawab Siraj ud-Daulah."},
+    {q:"Which is the longest river in India?",opts:["Brahmaputra","Godavari","Ganga","Indus"],ans:2,exp:"The Ganga is the longest river in India at approximately 2,525 km, though the Indus is longer if its Pakistan portion is included."},
+    {q:"What is the chemical symbol for Gold?",opts:["Go","Gd","Au","Ag"],ans:2,exp:"Gold's chemical symbol is Au, from the Latin word 'Aurum'."},
+    {q:"The Rajya Sabha can be dissolved by the President of India.",opts:["True","False","Only in national emergency","Only with Parliament approval"],ans:1,exp:"Unlike Lok Sabha, Rajya Sabha is a permanent house and cannot be dissolved. Only Lok Sabha can be dissolved."},
+    {q:"Which Indian state has the highest literacy rate as per Census 2011?",opts:["Mizoram","Goa","Kerala","Tripura"],ans:2,exp:"Kerala had the highest literacy rate at 94.0% as per the 2011 Census."},
+    {q:"The speed of light in vacuum is approximately:",opts:["3 × 10⁸ m/s","3 × 10⁶ m/s","3 × 10¹⁰ m/s","3 × 10⁴ m/s"],ans:0,exp:"The speed of light in vacuum is approximately 3 × 10⁸ metres per second (299,792,458 m/s exactly)."},
+    {q:"Who authored the book 'Discovery of India'?",opts:["Mahatma Gandhi","B.R. Ambedkar","Jawaharlal Nehru","Rabindranath Tagore"],ans:2,exp:"'Discovery of India' was written by Jawaharlal Nehru while imprisoned at Ahmadnagar Fort during 1942–1946."}
+  ],
+  ssc_chsl:[
+    {q:"Which article of the Indian Constitution abolishes untouchability?",opts:["Article 14","Article 17","Article 19","Article 21"],ans:1,exp:"Article 17 of the Indian Constitution abolishes untouchability and forbids its practice in any form."},
+    {q:"What is the square root of 1764?",opts:["42","44","46","48"],ans:0,exp:"√1764 = 42. Since 42 × 42 = 1764."},
+    {q:"'Sabarmati Ashram' is associated with which freedom fighter?",opts:["B.G. Tilak","Subhas Chandra Bose","Mahatma Gandhi","Sardar Patel"],ans:2,exp:"Sabarmati Ashram in Ahmedabad was established by Mahatma Gandhi in 1917 and served as his base for the freedom movement."},
+    {q:"Which gas is produced when baking soda reacts with vinegar?",opts:["Oxygen","Hydrogen","Carbon Dioxide","Nitrogen"],ans:2,exp:"Baking soda (NaHCO₃) reacts with vinegar (acetic acid) to produce Carbon Dioxide (CO₂), water, and sodium acetate."},
+    {q:"If 8 workers can complete a task in 12 days, how many days will 6 workers take?",opts:["14 days","16 days","18 days","20 days"],ans:1,exp:"Work = 8 × 12 = 96 man-days. For 6 workers: 96 ÷ 6 = 16 days."},
+    {q:"The headquarters of the United Nations is located in:",opts:["Geneva","New York","Vienna","Paris"],ans:1,exp:"The UN headquarters is located in Midtown Manhattan, New York City, USA."},
+    {q:"Which river is called 'Sorrow of Bihar'?",opts:["Kosi","Son","Gandak","Bagmati"],ans:0,exp:"The Kosi river is called the 'Sorrow of Bihar' due to frequent devastating floods it causes in the region."},
+    {q:"What does HTTP stand for?",opts:["HyperText Transfer Protocol","High Transfer Text Protocol","Hybrid Text Transfer Protocol","HyperText Translation Protocol"],ans:0,exp:"HTTP stands for HyperText Transfer Protocol — the foundation of data communication on the World Wide Web."},
+    {q:"A train 250m long passes a pole in 10 seconds. What is its speed in km/h?",opts:["72 km/h","90 km/h","108 km/h","36 km/h"],ans:1,exp:"Speed = 250/10 = 25 m/s = 25 × 18/5 = 90 km/h."},
+    {q:"Which instrument is used to measure blood pressure?",opts:["Thermometer","Stethoscope","Sphygmomanometer","Glucometer"],ans:2,exp:"A Sphygmomanometer is used to measure blood pressure. It was invented by Samuel Siegfried Karl Ritter von Basch."}
+  ],
+  railway_ntpc:[
+    {q:"Indian Railways was nationalized in which year?",opts:["1947","1950","1951","1952"],ans:2,exp:"Indian Railways was nationalized in 1951. Previously, multiple private and government railways operated separately."},
+    {q:"Which zone of Indian Railways has its headquarters in Mumbai?",opts:["Western Railway","Central Railway","Southern Railway","Both A and B"],ans:3,exp:"Both Western Railway (Churchgate) and Central Railway (CSMT) have their headquarters in Mumbai."},
+    {q:"The Rajdhani Express was introduced in which year?",opts:["1965","1969","1972","1975"],ans:1,exp:"The first Rajdhani Express ran between New Delhi and Howrah in 1969, covering the distance in about 17 hours."},
+    {q:"What is the gauge of the standard broad gauge used in Indian Railways?",opts:["1000 mm","1435 mm","1676 mm","762 mm"],ans:2,exp:"Indian Railways uses Broad Gauge of 1676 mm (5 ft 6 in), which is wider than the international standard gauge of 1435 mm."},
+    {q:"The Vande Bharat Express is a:",opts:["Diesel train","Electric train","Hybrid train","Hydrogen train"],ans:1,exp:"Vande Bharat Express (Train 18) is a fully electric, self-propelled semi-high-speed train designed and built in India under the Make in India initiative."},
+    {q:"Which country gifted the technology for the first Metro Rail in India (Kolkata)?",opts:["Japan","France","Russia","Germany"],ans:2,exp:"The Kolkata Metro, India's first metro, was built with Russian collaboration and opened in 1984."},
+    {q:"The Dedicated Freight Corridor (DFC) connects:",opts:["Delhi-Mumbai and Delhi-Kolkata","Mumbai-Chennai and Delhi-Mumbai","Delhi-Howrah and Delhi-Mumbai","None of these"],ans:2,exp:"The DFC consists of two corridors: Western DFC (Delhi–Mumbai) and Eastern DFC (Ludhiana/Delhi–Kolkata/Howrah)."},
+    {q:"What does IRCTC stand for?",opts:["Indian Rail Catering & Tourism Corporation","Indian Railway Central Travel Corporation","Indian Rail Central Tourism Company","Indian Railway Catering & Travel Centre"],ans:0,exp:"IRCTC stands for Indian Railway Catering and Tourism Corporation — a subsidiary of Indian Railways handling ticketing, tourism, and catering."},
+    {q:"Station code for New Delhi Railway Station is:",opts:["NDLS","NDL","NEWDL","NDS"],ans:0,exp:"The station code for New Delhi Railway Station is NDLS."},
+    {q:"The Konkan Railway runs along the western coast connecting:",opts:["Mumbai to Goa only","Roha to Thokur","Mumbai to Mangaluru","Pune to Kochi"],ans:1,exp:"Konkan Railway runs from Roha (Maharashtra) to Thokur (Mangaluru, Karnataka), covering approx. 741 km."}
+  ],
+  sbi_po:[
+    {q:"The Reserve Bank of India was established in:",opts:["1932","1935","1947","1949"],ans:1,exp:"The Reserve Bank of India (RBI) was established on April 1, 1935, based on the recommendations of the Hilton Young Commission."},
+    {q:"What is the full form of NEFT?",opts:["National Electronic Funds Transfer","National Electronic Financial Transaction","Net Electronic Funds Transfer","National Effective Fund Transfer"],ans:0,exp:"NEFT stands for National Electronic Funds Transfer — a payment system facilitating one-to-one funds transfer between bank accounts."},
+    {q:"The Monetary Policy Committee (MPC) of RBI has how many members?",opts:["3","4","6","8"],ans:2,exp:"MPC has 6 members — 3 from RBI (including Governor as Chair) and 3 external members appointed by the Government of India."},
+    {q:"Which bank was merged with State Bank of India in 2017?",opts:["Punjab National Bank","Bank of Baroda","State Bank of Patiala","All five associate banks"],ans:3,exp:"In 2017, all five associate banks — SBI Patiala, Mysore, Hyderabad, Travancore, Bikaner & Jaipur — and Bharatiya Mahila Bank merged with SBI."},
+    {q:"IMPS (Immediate Payment Service) is available:",opts:["Only on weekdays","Only on weekdays 8am-8pm","24×7 including holidays","Only bank working hours"],ans:2,exp:"IMPS is available 24 hours a day, 7 days a week, 365 days a year, including bank holidays and weekends."},
+    {q:"The minimum capital requirement for a new private sector bank in India is:",opts:["₹200 crore","₹500 crore","₹1000 crore","₹2000 crore"],ans:1,exp:"As per RBI guidelines, the minimum paid-up capital requirement for new private sector banks is ₹500 crore."},
+    {q:"What is the current repo rate set by RBI? (as of early 2026)",opts:["5.5%","6.0%","6.25%","6.5%"],ans:3,exp:"The RBI repo rate was 6.5% in early 2026. Always verify current rates from the official RBI website."},
+    {q:"Financial Inclusion in India is measured by which index?",opts:["Human Development Index","Financial Inclusion Index (FI-Index)","CIBIL Index","Gini Index"],ans:1,exp:"RBI launched the composite Financial Inclusion Index (FI-Index) in 2021 to measure the extent of financial inclusion in India."},
+    {q:"Which scheme provides social security to unorganized workers in India?",opts:["PM-KISAN","PMJDY","PM-SYM","Atal Pension Yojana"],ans:2,exp:"PM-SYM (Pradhan Mantri Shram Yogi Maandhan) provides pension of ₹3000/month to unorganized workers after age 60."},
+    {q:"The Narasimham Committee (1991) was related to:",opts:["Agricultural reforms","Banking sector reforms","Insurance reforms","Tax reforms"],ans:1,exp:"The Narasimham Committee (1991) recommended major banking sector reforms including reducing statutory ratios, deregulating interest rates, and entry of private banks."}
+  ],
+  upsc_cse:[
+    {q:"The concept of 'Welfare State' in the Indian Constitution is embodied in:",opts:["Fundamental Rights","Directive Principles of State Policy","Fundamental Duties","Preamble only"],ans:1,exp:"The Directive Principles of State Policy (Part IV) embody the concept of a welfare state, directing the government to promote social and economic welfare."},
+    {q:"Which Schedule of the Indian Constitution contains the list of recognized languages?",opts:["6th Schedule","7th Schedule","8th Schedule","9th Schedule"],ans:2,exp:"The 8th Schedule of the Indian Constitution contains the list of 22 officially recognized languages of India."},
+    {q:"The Indian Ocean Dipole (IOD) significantly affects:",opts:["El Niño patterns","Indian monsoon","Atlantic cyclones","Arctic ice"],ans:1,exp:"The Indian Ocean Dipole (IOD) strongly influences the Indian monsoon — a positive IOD typically leads to above-normal rainfall in India."},
+    {q:"'Project Tiger' was launched in India in:",opts:["1970","1973","1978","1982"],ans:1,exp:"Project Tiger was launched on April 1, 1973, at Jim Corbett National Park, Uttarakhand to protect Bengal tigers."},
+    {q:"The Comptroller and Auditor General of India is appointed by:",opts:["Prime Minister","Parliament","President","Chief Justice"],ans:2,exp:"The CAG of India is appointed by the President of India under Article 148 of the Constitution."},
+    {q:"Which article deals with 'Right to Constitutional Remedies' in India?",opts:["Article 19","Article 21","Article 32","Article 39"],ans:2,exp:"Article 32 guarantees the Right to Constitutional Remedies, allowing citizens to move the Supreme Court to enforce fundamental rights. Dr. Ambedkar called it the 'Heart and Soul' of the Constitution."},
+    {q:"The term 'Green GDP' refers to:",opts:["GDP of agricultural sector","GDP adjusted for environmental costs","GDP of renewable energy sector","GDP of green-certified industries"],ans:1,exp:"Green GDP adjusts traditional GDP by subtracting environmental costs (pollution, resource depletion) to reflect true economic growth sustainability."},
+    {q:"UNFCCC stands for:",opts:["UN Framework Convention on Climate Cooperation","UN Framework Convention on Climate Change","UN Forum on Carbon Cycle and Climate","United Nations Forestry and Climate Change Council"],ans:1,exp:"UNFCCC stands for United Nations Framework Convention on Climate Change — the international treaty addressing climate change, adopted in 1992."},
+    {q:"The 'Pradhan Mantri Fasal Bima Yojana' is related to:",opts:["Urban housing","Crop insurance","Rural roads","Farmer loans"],ans:1,exp:"PMFBY is a crop insurance scheme launched in 2016 to provide financial support to farmers suffering crop loss or damage due to unforeseen events."},
+    {q:"Which constitutional body supervises elections to Panchayats and Urban Local Bodies?",opts:["Election Commission of India","State Election Commission","Central Election Commission","Both A and B"],ans:1,exp:"Under Article 243K, the State Election Commission is responsible for superintendence, direction, and control of elections to Panchayats and Municipalities."}
+  ],
+  railway_alp:[
+    {q:"Which law states that the current through a conductor is directly proportional to voltage?",opts:["Faraday's Law","Kirchhoff's Law","Ohm's Law","Ampere's Law"],ans:2,exp:"Ohm's Law states V = IR, where current (I) is directly proportional to voltage (V) and inversely proportional to resistance (R)."},
+    {q:"The diesel engine was invented by:",opts:["James Watt","Nikola Tesla","Rudolf Diesel","Thomas Edison"],ans:2,exp:"The diesel engine was invented by German engineer Rudolf Diesel, who received a patent in 1892 and demonstrated it in 1897."},
+    {q:"What is the unit of electrical power?",opts:["Volt","Ampere","Watt","Ohm"],ans:2,exp:"Watt (W) is the SI unit of power. Power = Voltage × Current (P = V × I)."},
+    {q:"Which metal is the best conductor of electricity?",opts:["Copper","Aluminium","Silver","Gold"],ans:2,exp:"Silver is the best conductor of electricity among all metals, but copper is more commonly used due to cost-effectiveness."},
+    {q:"The function of a transformer is to:",opts:["Convert AC to DC","Convert DC to AC","Change the voltage of AC","Change frequency of current"],ans:2,exp:"A transformer changes (steps up or steps down) the voltage of alternating current (AC) while maintaining the same frequency."},
+    {q:"The bogie of a locomotive is used for:",opts:["Fuel storage","Supporting and guiding the locomotive on tracks","Housing electrical equipment","Passenger comfort only"],ans:1,exp:"A bogie (truck) is the wheeled chassis that supports and guides the locomotive on tracks, allowing it to navigate curves."},
+    {q:"Which gas is used in fire extinguishers?",opts:["Oxygen","Carbon Dioxide","Nitrogen","Helium"],ans:1,exp:"Carbon Dioxide (CO₂) is used in fire extinguishers as it displaces oxygen, suffocating the fire without leaving residue."},
+    {q:"The speed governor in a diesel engine controls:",opts:["Fuel quality","Engine speed","Exhaust emissions","Oil pressure"],ans:1,exp:"A speed governor automatically controls the engine speed to maintain a constant speed regardless of the load."},
+    {q:"Newton's second law of motion states F = ma. If mass is 10 kg and acceleration is 5 m/s², force is:",opts:["2 N","15 N","50 N","500 N"],ans:2,exp:"F = ma = 10 × 5 = 50 Newtons."},
+    {q:"The pantograph in an electric locomotive is used to:",opts:["Collect current from overhead wire","Measure track pressure","Control braking","Signal the driver"],ans:0,exp:"The pantograph is a device mounted on the roof of an electric locomotive that collects electric current from the overhead wire (catenary)."}
+  ]
+};
+
+// ── STATE ──
+let currentExam = null;
+let questions = [];
+let currentQ = 0;
+let answers = [];
+let skipped = [];
+let answered = 0;
+let timerInterval = null;
+let timeLeft = 20 * 60;
+let startTime = null;
+let selectedOpt = null;
+
+const FREE_EXAMS = ['ssc_cgl','ssc_chsl','railway_ntpc','railway_alp'];
+
+function selectExam(el) {
+  document.querySelectorAll('.exam-card').forEach(c => c.classList.remove('selected'));
+  el.classList.add('selected');
+  currentExam = el.dataset.exam;
+  const btn = document.getElementById('start-btn');
+  btn.disabled = false;
+  btn.innerHTML = `<svg width="20" height="20" fill="#fff" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> Start ${el.querySelector('.ec-name').textContent} Mock Test`;
+}
+
+function startTest() {
+  if (!currentExam) return;
+  if (!FREE_EXAMS.includes(currentExam)) { showPaywall(); return; }
+  questions = QB[currentExam] || QB.ssc_cgl;
+  answers = new Array(questions.length).fill(null);
+  skipped = new Array(questions.length).fill(false);
+  currentQ = 0; answered = 0; timeLeft = 20 * 60; startTime = Date.now();
+  showScreen('screen-test');
+  buildPalette();
+  renderQuestion();
+  startTimer();
+  document.getElementById('test-exam-label').textContent = document.querySelector('.exam-card.selected .ec-name').textContent + ' – General Awareness';
+}
+
+function buildPalette() {
+  const p = document.getElementById('q-palette');
+  p.innerHTML = '';
+  questions.forEach((_, i) => {
+    const d = document.createElement('div');
+    d.className = 'qp-num' + (i === 0 ? ' current' : '');
+    d.textContent = i + 1;
+    d.onclick = () => jumpTo(i);
+    d.id = `qp-${i}`;
+    p.appendChild(d);
+  });
+}
+
+function updatePalette() {
+  questions.forEach((_, i) => {
+    const el = document.getElementById(`qp-${i}`);
+    el.className = 'qp-num';
+    if (i === currentQ) el.classList.add('current');
+    else if (answers[i] !== null) el.classList.add('answered');
+    else if (skipped[i]) el.classList.add('skipped');
+  });
+}
+
+function renderQuestion() {
+  const q = questions[currentQ];
+  document.getElementById('q-counter').textContent = `QUESTION ${currentQ + 1} OF ${questions.length}`;
+  document.getElementById('q-text').textContent = q.q;
+  document.getElementById('progress-fill').style.width = `${((currentQ + 1) / questions.length) * 100}%`;
+  document.getElementById('tf-answered').textContent = `${answered} answered`;
+  document.getElementById('q-explanation').className = 'q-explanation';
+  document.getElementById('q-explanation').textContent = '';
+  selectedOpt = answers[currentQ];
+
+  const optsEl = document.getElementById('q-options');
+  optsEl.innerHTML = '';
+  const letters = ['A','B','C','D'];
+  q.opts.forEach((opt, i) => {
+    const div = document.createElement('div');
+    div.className = 'q-opt' + (selectedOpt === i ? ' selected' : '');
+    div.innerHTML = `<span class="q-opt-letter">${letters[i]}</span><span class="q-opt-text">${opt}</span>`;
+    div.onclick = () => selectOption(i);
+    optsEl.appendChild(div);
+  });
+
+  // if already answered, show state
+  if (answers[currentQ] !== null) {
+    showAnswerState();
+  }
+
+  document.getElementById('btn-next').disabled = (answers[currentQ] === null && !skipped[currentQ]);
+  updatePalette();
+}
+
+function selectOption(i) {
+  if (answers[currentQ] !== null) return; // already answered
+  const opts = document.querySelectorAll('.q-opt');
+  opts.forEach(o => o.classList.remove('selected'));
+  opts[i].classList.add('selected');
+  selectedOpt = i;
+  document.getElementById('btn-next').disabled = false;
+}
+
+function showAnswerState() {
+  const q = questions[currentQ];
+  const opts = document.querySelectorAll('.q-opt');
+  opts.forEach(o => o.classList.add('disabled'));
+  if (answers[currentQ] !== null) {
+    if (answers[currentQ] === q.ans) {
+      opts[answers[currentQ]].classList.remove('selected');
+      opts[answers[currentQ]].classList.add('correct');
+    } else {
+      opts[answers[currentQ]].classList.remove('selected');
+      opts[answers[currentQ]].classList.add('wrong');
+      opts[q.ans].classList.add('correct');
+    }
+    const exp = document.getElementById('q-explanation');
+    exp.textContent = '💡 ' + q.exp;
+    exp.classList.add('show');
+  }
+}
+
+function skipQuestion() {
+  skipped[currentQ] = true;
+  document.getElementById('btn-next').disabled = false;
+  goNextQuestion();
+}
+
+function nextQuestion() {
+  if (selectedOpt !== null && answers[currentQ] === null) {
+    answers[currentQ] = selectedOpt;
+    if (answers[currentQ] !== null) {
+      answered++;
+      showAnswerState();
+    }
+  }
+  // brief delay to show result before moving
+  if (answers[currentQ] !== null && currentQ < questions.length - 1) {
+    setTimeout(() => goNextQuestion(), 900);
+  } else {
+    goNextQuestion();
+  }
+}
+
+function goNextQuestion() {
+  updatePalette();
+  if (currentQ < questions.length - 1) {
+    currentQ++;
+    selectedOpt = answers[currentQ];
+    renderQuestion();
+  } else {
+    submitTest();
+  }
+}
+
+function jumpTo(i) {
+  currentQ = i;
+  selectedOpt = answers[currentQ];
+  renderQuestion();
+}
+
+function startTimer() {
+  clearInterval(timerInterval);
+  timerInterval = setInterval(() => {
+    timeLeft--;
+    const m = Math.floor(timeLeft / 60).toString().padStart(2,'0');
+    const s = (timeLeft % 60).toString().padStart(2,'0');
+    document.getElementById('timer').textContent = `${m}:${s}`;
+    if (timeLeft <= 120) document.getElementById('timer').classList.add('warning');
+    if (timeLeft <= 0) { clearInterval(timerInterval); submitTest(); }
+  }, 1000);
+}
+
+function submitTest() {
+  clearInterval(timerInterval);
+  // save unanswered current
+  if (selectedOpt !== null && answers[currentQ] === null) {
+    answers[currentQ] = selectedOpt;
+    answered++;
+  }
+  showResult();
+}
+
+function showResult() {
+  const correct = answers.filter((a, i) => a === questions[i].ans).length;
+  const wrong = answers.filter((a, i) => a !== null && a !== questions[i].ans).length;
+  const skip = answers.filter(a => a === null).length;
+  const score = correct * 2 - wrong * 0.5;
+  const maxScore = questions.length * 2;
+  const pct = Math.round((correct / questions.length) * 100);
+
+  document.getElementById('rs-correct').textContent = correct;
+  document.getElementById('rs-wrong').textContent = wrong;
+  document.getElementById('rs-skipped').textContent = skip;
+  document.getElementById('rs-score').textContent = score.toFixed(1);
+  document.getElementById('score-pct').textContent = pct + '%';
+  document.getElementById('score-ring').style.setProperty('--pct', `${pct * 3.6}deg`);
+
+  const elapsed = Math.round((Date.now() - startTime) / 1000);
+  const mm = Math.floor(elapsed / 60).toString().padStart(2,'0');
+  const ss = (elapsed % 60).toString().padStart(2,'0');
+  document.getElementById('my-time-lb').textContent = `${mm}:${ss}`;
+  document.getElementById('my-score-lb').textContent = `${score.toFixed(1)}/${maxScore}`;
+
+  // fake rank
+  const rank = correct >= 9 ? Math.floor(Math.random()*10)+1 : correct >= 7 ? Math.floor(Math.random()*50)+10 : Math.floor(Math.random()*200)+50;
+  document.getElementById('result-rank').textContent = '#' + rank;
+  document.getElementById('my-rank-pos').textContent = rank;
+
+  let title = pct >= 80 ? '🎉 Excellent Performance!' : pct >= 60 ? '👍 Good Job!' : pct >= 40 ? '📚 Keep Practicing!' : '💪 You Can Do Better!';
+  document.getElementById('result-title').textContent = title;
+  document.getElementById('result-subtitle').textContent = document.querySelector('.exam-card.selected .ec-name').textContent + ' · Free Trial (10 Qs)';
+
+  showScreen('screen-result');
+}
+
+function restartTest() {
+  startTest();
+}
+function goHome() {
+  showScreen('screen-select');
+}
+function showScreen(id) {
+  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function showPaywall() {
+  document.getElementById('paywall').style.display = 'flex';
+}
+function hidePaywall(e) {
+  if (!e || e.target === document.getElementById('paywall')) {
+    document.getElementById('paywall').style.display = 'none';
+  }
+}
+
+// URL param auto-select
+window.addEventListener('DOMContentLoaded', () => {
+  const params = new URLSearchParams(location.search);
+  const exam = params.get('exam');
+  if (exam) {
+    const card = document.querySelector(`[data-exam="${exam}"]`) || document.querySelector(`[data-exam="${exam}_cgl"]`);
+    if (card) { selectExam(card); }
+  }
+  if (location.hash === '#plans') {
+    setTimeout(() => document.getElementById('plans').scrollIntoView({behavior:'smooth'}), 400);
+  }
+});
+</script>
+
+<script src="onlyjobs-ai.js"></script>
+</body>
+</html>
