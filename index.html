@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+ <link rel="manifest" href="/onlyjob/manifest.json"/>
+<meta name="theme-color" content="#E85D04"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+<meta name="apple-mobile-web-app-title" content="OnlyJobs"/>
+<link rel="apple-touch-icon" href="/onlyjob/icon-192.png"/>
+<link rel="icon" type="image/png" sizes="192x192" href="/onlyjob/icon-192.png"/>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>OnlyJobs – Sarkari Results, Latest Govt Jobs 2026</title>
@@ -647,5 +654,29 @@ document.getElementById('popup-overlay').addEventListener('click', function(e) {
 </script>
 
 <script src="onlyjobs-ai.js"></script>
+<script>
+if('serviceWorker' in navigator){
+  window.addEventListener('load',function(){
+    navigator.serviceWorker.register('/onlyjob/sw.js',{scope:'/onlyjob/'});
+  });
+}
+var _dp=null;
+window.addEventListener('beforeinstallprompt',function(e){
+  e.preventDefault();_dp=e;
+  if(sessionStorage.getItem('oj_dismissed'))return;
+  var b=document.createElement('div');
+  b.id='ojb';
+  b.style.cssText='position:fixed;bottom:0;left:0;right:0;z-index:99999;background:#1A1A2E;border-top:3px solid #E85D04;padding:14px 20px;display:flex;align-items:center;gap:14px;font-family:Figtree,sans-serif;box-shadow:0 -4px 20px rgba(0,0,0,.4);';
+  b.innerHTML='<div style="width:42px;height:42px;background:#E85D04;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0;">💼</div>'
+  +'<div style="flex:1;"><div style="font-size:14px;font-weight:700;color:#fff;">Install OnlyJobs App</div><div style="font-size:12px;color:#94A3B8;">Works offline. No Play Store needed!</div></div>'
+  +'<button onclick="var p=_dp;if(p){p.prompt();p.userChoice.then(function(){document.getElementById(\'ojb\').remove();});};" style="background:linear-gradient(135deg,#E85D04,#C44D00);color:#fff;border:none;padding:10px 18px;border-radius:8px;font-size:13px;font-weight:700;cursor:pointer;white-space:nowrap;">Install</button>'
+  +'<button onclick="sessionStorage.setItem(\'oj_dismissed\',\'1\');document.getElementById(\'ojb\').remove();" style="background:rgba(255,255,255,.1);color:#fff;border:none;padding:10px 12px;border-radius:8px;cursor:pointer;">✕</button>';
+  document.body.appendChild(b);
+});
+window.addEventListener('appinstalled',function(){
+  var b=document.getElementById('ojb');if(b)b.remove();
+});
+</script>
 </body>
+ 
 </html>
