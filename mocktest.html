@@ -240,6 +240,7 @@ nav a.act{background:var(--accent);color:#fff;}
       <a href="#">Results</a>
       <a href="#">Admit Card</a>
     </nav>
+    <div id="nav-auth" style="margin-left:auto;"></div>
   </div>
 </header>
 
@@ -1086,13 +1087,250 @@ function show(id) { document.querySelectorAll('.screen').forEach(s => s.classLis
 function showPW() { document.getElementById('pw').style.display = 'flex'; }
 function closePW(e) { if (!e || e.target === document.getElementById('pw')) document.getElementById('pw').style.display = 'none'; }
 
+/* ════════════════════════════════════════
+   AUTH SYSTEM
+════════════════════════════════════════ */
+function getUsers(){return JSON.parse(localStorage.getItem('oj_users')||'[]');}
+function saveUsers(u){localStorage.setItem('oj_users',JSON.stringify(u));}
+function getCurrentUser(){return JSON.parse(localStorage.getItem('oj_current_user')||'null');}
+function setCurrentUser(u){localStorage.setItem('oj_current_user',JSON.stringify(u));}
+
+function saveUserScore(scoreObj){
+  const user=getCurrentUser(); if(!user)return;
+  const key='oj_scores_'+user.email;
+  const arr=JSON.parse(localStorage.getItem(key)||'[]');
+  arr.unshift(scoreObj);
+  localStorage.setItem(key,JSON.stringify(arr.slice(0,50)));
+}
+
+function updateNavAuth(){
+  const user=getCurrentUser();
+  const navAuthEl=document.getElementById('nav-auth');
+  if(!navAuthEl)return;
+  if(user){
+    navAuthEl.innerHTML=`
+      <div style="display:flex;align-items:center;gap:10px;">
+        <div style="width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,#E85D04,#7C3AED);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;color:#fff;flex-shrink:0;">${(user.fname[0]+(user.lname?user.lname[0]:'')).toUpperCase()}</div>
+        <span style="font-size:13px;font-weight:600;color:var(--dark);max-width:100px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">${user.fname}</span>
+        <a href="auth.html" style="font-size:12px;color:var(--muted);text-decoration:none;padding:5px 10px;border:1px solid var(--border);border-radius:6px;">Dashboard</a>
+      </div>`;
+  } else {
+    navAuthEl.innerHTML=`
+      <div style="display:flex;gap:8px;">
+        <a href="auth.html" style="font-size:13px;font-weight:600;color:var(--muted);text-decoration:none;padding:7px 14px;border:1.5px solid var(--border);border-radius:8px;transition:all .15s;" onmouseover="this.style.borderColor='#E85D04';this.style.color='#E85D04'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--muted)'">Log In</a>
+        <a href="auth.html?tab=signup" style="font-size:13px;font-weight:700;color:#fff;text-decoration:none;padding:7px 16px;background:linear-gradient(135deg,#E85D04,#C44D00);border-radius:8px;">Sign Up Free</a>
+      </div>`;
+  }
+}
+
+function showToast(msg, ok=true){
+  let t=document.getElementById('oj-toast-mt');
+  if(!t){t=document.createElement('div');t.id='oj-toast-mt';t.style.cssText='position:fixed;bottom:28px;left:50%;transform:translateX(-50%) translateY(20px);background:#1A1A2E;color:#fff;padding:12px 22px;border-radius:10px;font-size:14px;font-weight:600;opacity:0;transition:all .3s;z-index:99999;pointer-events:none;white-space:nowrap;';document.body.appendChild(t);}
+  t.textContent=(ok?'✅ ':'❌ ')+msg;
+  t.style.opacity='1';t.style.transform='translateX(-50%) translateY(0)';
+  clearTimeout(t._timer);
+  t._timer=setTimeout(()=>{t.style.opacity='0';t.style.transform='translateX(-50%) translateY(20px)';},3000);
+}
+
+/* AUTH POPUP — shown before test if not logged in */
+function showAuthPopup(onSuccess){
+  document.getElementById('auth-popup').style.display='flex';
+  window._authOnSuccess=onSuccess;
+  document.getElementById('ap-tab-login').click();
+}
+function closeAuthPopup(){document.getElementById('auth-popup').style.display='none';}
+
+function apSwitchTab(tab){
+  document.getElementById('ap-login-form').style.display=tab==='login'?'block':'none';
+  document.getElementById('ap-signup-form').style.display=tab==='signup'?'block':'none';
+  document.getElementById('ap-tab-login').classList.toggle('ap-tab-act',tab==='login');
+  document.getElementById('ap-tab-signup').classList.toggle('ap-tab-act',tab==='signup');
+}
+
+function apLogin(){
+  const email=document.getElementById('ap-l-email').value.trim().toLowerCase();
+  const pass=document.getElementById('ap-l-pass').value;
+  if(!email||!pass){showToast('Please fill all fields.',false);return;}
+  const users=getUsers();
+  const user=users.find(u=>u.email===email&&u.password===btoa(pass));
+  if(!user){showToast('Invalid email or password.',false);return;}
+  setCurrentUser(user);
+  closeAuthPopup(); updateNavAuth();
+  showToast('Welcome back, '+user.fname+'! 🎉');
+  if(window._authOnSuccess) window._authOnSuccess(user);
+}
+
+function apSignup(){
+  const fname=document.getElementById('ap-s-name').value.trim();
+  const email=document.getElementById('ap-s-email').value.trim().toLowerCase();
+  const pass=document.getElementById('ap-s-pass').value;
+  if(!fname||!email||pass.length<6){showToast('Please fill all fields (min 6 char password).',false);return;}
+  const users=getUsers();
+  if(users.find(u=>u.email===email)){showToast('Email already registered. Log in instead.',false);return;}
+  const user={fname,lname:'',email,password:btoa(pass),state:'India',exam:'Multiple',joined:new Date().toLocaleDateString('en-IN',{year:'numeric',month:'short',day:'numeric'})};
+  users.push(user);saveUsers(users);setCurrentUser(user);
+  closeAuthPopup(); updateNavAuth();
+  showToast('Account created! Welcome, '+fname+'! 🚀');
+  if(window._authOnSuccess) window._authOnSuccess(user);
+}
+
+/* SAVE SCORE POPUP — shown after test result */
+function showSaveScorePopup(scoreObj){
+  const user=getCurrentUser();
+  if(user){
+    saveUserScore(scoreObj);
+    showToast('Score saved to your profile! 📊');
+    return;
+  }
+  // not logged in — show save popup
+  document.getElementById('save-score-popup').style.display='flex';
+  window._pendingScore=scoreObj;
+}
+function closeSavePopup(){document.getElementById('save-score-popup').style.display='none';}
+function saveAfterAuth(){
+  closeAuthPopup();
+  closeSavePopup();
+  showAuthPopup((user)=>{
+    if(window._pendingScore){ saveUserScore(window._pendingScore); showToast('Score saved to your profile! 📊'); }
+  });
+}
+
+/* Patch startTest to check auth */
+const _origStartTest = startTest;
+startTest = function(){
+  if(!exam)return;
+  if(!cfg)return;
+  if(!cfg.free){showPW();return;}
+  const user=getCurrentUser();
+  if(!user){
+    // show auth popup, then start on success
+    showAuthPopup(()=>{ _origStartTest(); });
+    // also allow guest
+    return;
+  }
+  _origStartTest();
+};
+
+/* Patch showResult to offer score saving */
+const _origShowResult = showResult;
+showResult = function(){
+  _origShowResult();
+  // after result rendered, build score obj and offer save
+  setTimeout(()=>{
+    const correct = answers.filter((a,i)=>a===Qs[i].a).length;
+    const wrong = answers.filter((a,i)=>a!==null&&a!==Qs[i].a).length;
+    const score = correct*cfg.pos - wrong*cfg.neg;
+    const pct = Math.round((correct/100)*100);
+    const rank = parseInt(document.getElementById('r-rank').textContent.replace('#',''))||999;
+    const icons={ssc_cgl:'📋',rrb_ntpc:'🚂',sbi_po:'🏦',upsc_cse:'🏛️'};
+    const scoreObj={
+      examKey:exam, examName:cfg.name, icon:icons[exam]||'📋',
+      correct, wrong, score:score.toFixed(1), pct, rank,
+      date:new Date().toLocaleDateString('en-IN',{day:'numeric',month:'short',year:'numeric'}),
+      time:new Date().toLocaleTimeString('en-IN',{hour:'2-digit',minute:'2-digit'})
+    };
+    showSaveScorePopup(scoreObj);
+  }, 400);
+};
+
 window.addEventListener('DOMContentLoaded', () => {
   const p = new URLSearchParams(location.search);
   const e = p.get('exam');
   if (e) { const c = document.querySelector(`[data-exam="${e}"]`)||document.querySelector(`[data-exam="${e}_cgl"]`); if(c) selectExam(c); }
   if (location.hash === '#plans') setTimeout(() => document.getElementById('plans').scrollIntoView({behavior:'smooth'}), 300);
+  updateNavAuth();
 });
 </script>
+
+<!-- ══ AUTH POPUP MODAL ══ -->
+<div id="auth-popup" style="display:none;position:fixed;inset:0;background:rgba(26,26,46,0.82);z-index:9998;align-items:center;justify-content:center;padding:20px;" onclick="if(event.target===this)closeAuthPopup()">
+  <div style="background:#fff;border-radius:20px;max-width:440px;width:100%;overflow:hidden;box-shadow:0 24px 80px rgba(0,0,0,0.3);animation:fadeUp .3s ease;">
+    <!-- Header -->
+    <div style="background:linear-gradient(135deg,#1A1A2E,#2D1B69);padding:24px 28px 20px;position:relative;">
+      <button onclick="closeAuthPopup()" style="position:absolute;top:14px;right:14px;background:rgba(255,255,255,0.1);border:none;color:#fff;width:30px;height:30px;border-radius:8px;font-size:16px;cursor:pointer;">✕</button>
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
+        <div style="width:36px;height:36px;background:#E85D04;border-radius:8px;display:flex;align-items:center;justify-content:center;"><svg width="20" height="20" fill="#fff" viewBox="0 0 24 24"><path d="M20 7H4C2.9 7 2 7.9 2 9v11c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V9c0-1.1-.9-2-2-2zm-9 8H7v-2h4v2zm6-4H7v-2h10v2z"/><path d="M16 1H8C6.9 1 6 1.9 6 3v3h12V3c0-1.1-.9-2-2-2z"/></svg></div>
+        <div style="font-family:'Syne',sans-serif;font-weight:800;font-size:18px;color:#fff;">Only<span style="color:#FDBA74;">Jobs</span></div>
+      </div>
+      <div style="font-family:'Syne',sans-serif;font-size:18px;font-weight:800;color:#fff;margin-bottom:4px;">Save Your Progress 📊</div>
+      <div style="font-size:13px;color:#94A3B8;">Free account — track every score, see national rank</div>
+    </div>
+    <!-- Tabs -->
+    <div style="display:flex;background:#F7F8FC;margin:16px 20px 0;border-radius:10px;padding:4px;">
+      <button id="ap-tab-login" class="ap-tab-act" onclick="apSwitchTab('login')" style="flex:1;padding:9px;border:none;background:#fff;border-radius:7px;font-size:13.5px;font-weight:600;cursor:pointer;font-family:'Figtree',sans-serif;box-shadow:0 1px 3px rgba(0,0,0,0.1);">Log In</button>
+      <button id="ap-tab-signup" onclick="apSwitchTab('signup')" style="flex:1;padding:9px;border:none;background:transparent;border-radius:7px;font-size:13.5px;font-weight:600;cursor:pointer;color:#6B7280;font-family:'Figtree',sans-serif;">Sign Up Free</button>
+    </div>
+    <style>.ap-tab-act{background:#fff!important;color:#2D2D3A!important;box-shadow:0 1px 3px rgba(0,0,0,0.1)!important;} #ap-tab-login,#ap-tab-signup{transition:all .2s;}</style>
+    <!-- Login form -->
+    <div id="ap-login-form" style="padding:20px 24px 24px;">
+      <div style="margin-bottom:12px;">
+        <label style="font-size:12px;font-weight:700;color:#2D2D3A;display:block;margin-bottom:5px;">Email</label>
+        <input id="ap-l-email" type="email" placeholder="yourname@email.com" style="width:100%;padding:10px 13px;border:1.5px solid #E8EAF0;border-radius:8px;font-size:14px;font-family:'Figtree',sans-serif;outline:none;" onfocus="this.style.borderColor='#E85D04'" onblur="this.style.borderColor='#E8EAF0'"/>
+      </div>
+      <div style="margin-bottom:16px;">
+        <label style="font-size:12px;font-weight:700;color:#2D2D3A;display:block;margin-bottom:5px;">Password</label>
+        <input id="ap-l-pass" type="password" placeholder="Your password" style="width:100%;padding:10px 13px;border:1.5px solid #E8EAF0;border-radius:8px;font-size:14px;font-family:'Figtree',sans-serif;outline:none;" onfocus="this.style.borderColor='#E85D04'" onblur="this.style.borderColor='#E8EAF0'" onkeydown="if(event.key==='Enter')apLogin()"/>
+      </div>
+      <button onclick="apLogin()" style="width:100%;padding:12px;background:linear-gradient(135deg,#E85D04,#C44D00);color:#fff;border:none;border-radius:9px;font-size:14.5px;font-weight:700;cursor:pointer;font-family:'Figtree',sans-serif;margin-bottom:10px;">Log In & Save Score</button>
+      <button onclick="closeAuthPopup();_origStartTest?_origStartTest():startTest();" style="width:100%;padding:10px;background:#F7F8FC;border:1.5px solid #E8EAF0;color:#6B7280;border-radius:9px;font-size:13.5px;font-weight:600;cursor:pointer;font-family:'Figtree',sans-serif;">Continue as Guest (score won't be saved)</button>
+    </div>
+    <!-- Signup form -->
+    <div id="ap-signup-form" style="padding:20px 24px 24px;display:none;">
+      <div style="margin-bottom:12px;">
+        <label style="font-size:12px;font-weight:700;color:#2D2D3A;display:block;margin-bottom:5px;">Your Name</label>
+        <input id="ap-s-name" type="text" placeholder="Rahul Sharma" style="width:100%;padding:10px 13px;border:1.5px solid #E8EAF0;border-radius:8px;font-size:14px;font-family:'Figtree',sans-serif;outline:none;" onfocus="this.style.borderColor='#E85D04'" onblur="this.style.borderColor='#E8EAF0'"/>
+      </div>
+      <div style="margin-bottom:12px;">
+        <label style="font-size:12px;font-weight:700;color:#2D2D3A;display:block;margin-bottom:5px;">Email</label>
+        <input id="ap-s-email" type="email" placeholder="yourname@email.com" style="width:100%;padding:10px 13px;border:1.5px solid #E8EAF0;border-radius:8px;font-size:14px;font-family:'Figtree',sans-serif;outline:none;" onfocus="this.style.borderColor='#E85D04'" onblur="this.style.borderColor='#E8EAF0'"/>
+      </div>
+      <div style="margin-bottom:16px;">
+        <label style="font-size:12px;font-weight:700;color:#2D2D3A;display:block;margin-bottom:5px;">Password (min 6 chars)</label>
+        <input id="ap-s-pass" type="password" placeholder="Create a password" style="width:100%;padding:10px 13px;border:1.5px solid #E8EAF0;border-radius:8px;font-size:14px;font-family:'Figtree',sans-serif;outline:none;" onfocus="this.style.borderColor='#E85D04'" onblur="this.style.borderColor='#E8EAF0'" onkeydown="if(event.key==='Enter')apSignup()"/>
+      </div>
+      <button onclick="apSignup()" style="width:100%;padding:12px;background:linear-gradient(135deg,#E85D04,#C44D00);color:#fff;border:none;border-radius:9px;font-size:14.5px;font-weight:700;cursor:pointer;font-family:'Figtree',sans-serif;margin-bottom:10px;">Create Free Account & Start</button>
+      <button onclick="closeAuthPopup();_origStartTest?_origStartTest():null;" style="width:100%;padding:10px;background:#F7F8FC;border:1.5px solid #E8EAF0;color:#6B7280;border-radius:9px;font-size:13.5px;font-weight:600;cursor:pointer;font-family:'Figtree',sans-serif;">Continue as Guest</button>
+    </div>
+  </div>
+</div>
+
+<!-- ══ SAVE SCORE POPUP ══ -->
+<div id="save-score-popup" style="display:none;position:fixed;inset:0;background:rgba(26,26,46,0.82);z-index:9998;align-items:center;justify-content:center;padding:20px;" onclick="if(event.target===this)closeSavePopup()">
+  <div style="background:#fff;border-radius:20px;max-width:400px;width:100%;overflow:hidden;box-shadow:0 24px 80px rgba(0,0,0,0.3);animation:fadeUp .3s ease;">
+    <div style="background:linear-gradient(135deg,#059669,#065F46);padding:24px;text-align:center;">
+      <div style="font-size:48px;margin-bottom:8px;">🏆</div>
+      <div style="font-family:'Syne',sans-serif;font-size:19px;font-weight:800;color:#fff;margin-bottom:4px;">Test Completed!</div>
+      <div style="font-size:13px;color:#A7F3D0;">Create a free account to save this score</div>
+    </div>
+    <div style="padding:24px;">
+      <div style="background:#F7F8FC;border-radius:12px;padding:16px;margin-bottom:20px;display:flex;gap:16px;justify-content:center;">
+        <div style="text-align:center;"><div style="font-family:'Syne',sans-serif;font-size:24px;font-weight:800;color:#E85D04;" id="sp-pct">—</div><div style="font-size:11px;color:#6B7280;">Score %</div></div>
+        <div style="width:1px;background:#E8EAF0;"></div>
+        <div style="text-align:center;"><div style="font-family:'Syne',sans-serif;font-size:24px;font-weight:800;color:#7C3AED;" id="sp-rank">—</div><div style="font-size:11px;color:#6B7280;">National Rank</div></div>
+        <div style="width:1px;background:#E8EAF0;"></div>
+        <div style="text-align:center;"><div style="font-family:'Syne',sans-serif;font-size:24px;font-weight:800;color:#059669;" id="sp-cor">—</div><div style="font-size:11px;color:#6B7280;">Correct</div></div>
+      </div>
+      <button onclick="saveAfterAuth()" style="width:100%;padding:13px;background:linear-gradient(135deg,#E85D04,#C44D00);color:#fff;border:none;border-radius:10px;font-size:14.5px;font-weight:700;cursor:pointer;font-family:'Figtree',sans-serif;margin-bottom:10px;">💾 Save Score — Sign Up Free</button>
+      <button onclick="closeSavePopup()" style="width:100%;padding:11px;background:#F7F8FC;border:1.5px solid #E8EAF0;color:#6B7280;border-radius:10px;font-size:13.5px;font-weight:600;cursor:pointer;font-family:'Figtree',sans-serif;">No thanks, discard score</button>
+    </div>
+  </div>
+</div>
+
+<style>
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px) scale(.97)}to{opacity:1;transform:none}}
+</style>
+
+<!-- Patch save score popup to show real data -->
+<script>
+const _origShowSave = showSaveScorePopup;
+showSaveScorePopup = function(obj){
+  document.getElementById('sp-pct').textContent = obj.pct+'%';
+  document.getElementById('sp-rank').textContent = '#'+obj.rank;
+  document.getElementById('sp-cor').textContent = obj.correct+'/100';
+  _origShowSave(obj);
+};
+</script>
+
 <script src="onlyjobs-ai.js"></script>
 </body>
 </html>
