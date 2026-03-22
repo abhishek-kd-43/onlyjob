@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Latest Govt Jobs 2026 – OnlyJobs | Sarkari Naukri</title>
+<meta name="description" content="Latest government job notifications 2026 – SSC, Railway, Banking, UPSC, Defence, State PSC. Apply online for sarkari naukri at OnlyJobs."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Figtree:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --accent:#E85D04;--al:#FFF3EB;--ad:#C44D00;
+  --dark:#1A1A2E;--text:#2D2D3A;--muted:#6B7280;
+  --border:#E8EAF0;--bg:#fff;--bg2:#F7F8FC;--bg3:#F0F2F8;
+  --green:#059669;--gl:#ECFDF5;
+  --blue:#1D4ED8;--bl:#EFF6FF;
+  --purple:#7C3AED;--pl:#F5F3FF;
+  --red:#DC2626;--rl:#FEF2F2;
+  --r:10px;
+}
+html{scroll-behavior:smooth;}
+body{font-family:'Figtree',sans-serif;color:var(--text);background:var(--bg3);font-size:15px;line-height:1.6;}
+
+/* ── NAV ── */
+header{background:#fff;border-bottom:1.5px solid var(--border);position:sticky;top:0;z-index:100;}
+.nav-inner{max-width:1280px;margin:0 auto;padding:0 24px;display:flex;align-items:center;gap:14px;height:62px;}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;flex-shrink:0;}
+.logo-icon{width:36px;height:36px;background:var(--accent);border-radius:8px;display:flex;align-items:center;justify-content:center;}
+.logo-icon svg{width:20px;height:20px;fill:#fff;}
+.logo-text{font-family:'Syne',sans-serif;font-weight:800;font-size:20px;color:var(--dark);}
+.logo-text span{color:var(--accent);}
+nav{display:flex;gap:4px;margin-left:12px;}
+nav a{font-size:13px;font-weight:500;color:var(--muted);text-decoration:none;padding:6px 11px;border-radius:6px;white-space:nowrap;transition:all .15s;}
+nav a:hover{background:var(--al);color:var(--ad);}
+nav a.act{background:var(--accent);color:#fff;}
+.nav-right{margin-left:auto;display:flex;gap:8px;align-items:center;}
+.nav-search-box{display:flex;border:1.5px solid var(--border);border-radius:8px;overflow:hidden;}
+.nav-search-box input{padding:7px 13px;font-size:13px;border:none;outline:none;width:200px;font-family:'Figtree',sans-serif;}
+.nav-search-box button{background:var(--accent);color:#fff;border:none;padding:7px 14px;cursor:pointer;font-size:13px;font-weight:600;}
+@media(max-width:900px){nav{display:none;}.nav-search-box input{width:140px;}}
+
+/* ── TICKER ── */
+.ticker{background:var(--al);border-bottom:1px solid #FDDCBA;padding:7px 0;overflow:hidden;}
+.ticker-inner{max-width:1280px;margin:0 auto;padding:0 24px;display:flex;align-items:center;gap:14px;}
+.ticker-tag{background:var(--accent);color:#fff;padding:2px 10px;border-radius:4px;font-size:11px;font-weight:700;white-space:nowrap;flex-shrink:0;}
+.ticker-track{display:flex;animation:tick 35s linear infinite;white-space:nowrap;}
+.ticker-track:hover{animation-play-state:paused;}
+.ti{font-size:13px;color:var(--ad);font-weight:500;padding-right:40px;}
+.ti::before{content:'›';margin-right:6px;opacity:.6;}
+@keyframes tick{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+/* ── BREADCRUMB ── */
+.breadcrumb{max-width:1280px;margin:0 auto;padding:14px 24px 0;font-size:12.5px;color:var(--muted);}
+.breadcrumb a{color:var(--accent);text-decoration:none;}
+.breadcrumb a:hover{text-decoration:underline;}
+
+/* ── PAGE LAYOUT ── */
+.page{max-width:1280px;margin:0 auto;padding:20px 24px 40px;display:grid;grid-template-columns:1fr 300px;gap:22px;align-items:start;}
+@media(max-width:1024px){.page{grid-template-columns:1fr;}}
+
+/* ── MAIN AREA ── */
+/* Page header */
+.main-hdr{background:linear-gradient(135deg,var(--dark) 0%,#2D2D5E 100%);border-radius:14px;padding:28px 32px;margin-bottom:18px;position:relative;overflow:hidden;}
+.main-hdr::after{content:'';position:absolute;right:-60px;top:-60px;width:240px;height:240px;background:rgba(255,255,255,0.03);border-radius:50%;}
+.mh-tag{display:inline-flex;align-items:center;gap:5px;background:rgba(253,186,116,.15);border:1px solid rgba(253,186,116,.3);color:#FDBA74;padding:3px 12px;border-radius:20px;font-size:11px;font-weight:700;margin-bottom:10px;}
+.mh-title{font-family:'Syne',sans-serif;font-size:clamp(20px,3vw,28px);font-weight:800;color:#fff;margin-bottom:6px;}
+.mh-title span{color:#FDBA74;}
+.mh-sub{color:#94A3B8;font-size:13.5px;}
+.mh-stats{display:flex;gap:22px;margin-top:16px;flex-wrap:wrap;}
+.mhs{text-align:center;}
+.mhs-n{font-family:'Syne',sans-serif;font-size:18px;font-weight:800;color:#FDBA74;}
+.mhs-l{font-size:11px;color:#64748B;}
+
+/* Filter bar */
+.filter-bar{background:#fff;border:1.5px solid var(--border);border-radius:var(--r);padding:14px 16px;margin-bottom:16px;display:flex;gap:10px;align-items:center;flex-wrap:wrap;}
+.fb-label{font-size:12px;font-weight:700;color:var(--muted);white-space:nowrap;}
+.filter-chips{display:flex;gap:7px;flex-wrap:wrap;flex:1;}
+.chip{padding:5px 13px;border:1.5px solid var(--border);border-radius:20px;font-size:12.5px;font-weight:600;cursor:pointer;transition:all .15s;background:#fff;color:var(--muted);white-space:nowrap;}
+.chip:hover{border-color:var(--accent);color:var(--accent);}
+.chip.on{background:var(--accent);border-color:var(--accent);color:#fff;}
+.fb-search{display:flex;border:1.5px solid var(--border);border-radius:7px;overflow:hidden;flex-shrink:0;}
+.fb-search input{padding:7px 12px;font-size:13px;border:none;outline:none;width:180px;font-family:'Figtree',sans-serif;}
+.fb-search input::placeholder{color:#9CA3AF;}
+@media(max-width:600px){.fb-search{width:100%;}.fb-search input{flex:1;width:auto;}}
+
+/* Sort bar */
+.sort-bar{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;flex-wrap:wrap;gap:8px;}
+.sort-left{font-size:13px;color:var(--muted);}
+.sort-left strong{color:var(--dark);}
+.sort-right{display:flex;gap:8px;align-items:center;font-size:13px;color:var(--muted);}
+.sort-right select{padding:5px 10px;border:1.5px solid var(--border);border-radius:7px;font-size:13px;font-family:'Figtree',sans-serif;outline:none;color:var(--dark);background:#fff;}
+
+/* Job cards */
+.job-list{display:flex;flex-direction:column;gap:10px;}
+.job-card{background:#fff;border:1.5px solid var(--border);border-radius:var(--r);padding:0;overflow:hidden;transition:all .15s;cursor:pointer;}
+.job-card:hover{border-color:var(--accent);box-shadow:0 4px 20px rgba(232,93,4,.08);transform:translateY(-1px);}
+.jc-inner{padding:16px 18px;}
+.jc-top{display:flex;align-items:flex-start;gap:14px;}
+.jc-org-icon{width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;}
+.jc-info{flex:1;min-width:0;}
+.jc-title{font-family:'Syne',sans-serif;font-size:15px;font-weight:700;color:var(--dark);margin-bottom:4px;line-height:1.3;}
+.jc-title a{color:inherit;text-decoration:none;}
+.jc-title a:hover{color:var(--accent);}
+.jc-org{font-size:12.5px;color:var(--muted);margin-bottom:8px;}
+.jc-tags{display:flex;gap:6px;flex-wrap:wrap;}
+.tag{font-size:11px;font-weight:700;padding:2px 9px;border-radius:20px;}
+.tag-cat{background:var(--bl);color:var(--blue);}
+.tag-state{background:var(--gl);color:var(--green);}
+.tag-edu{background:var(--pl);color:var(--purple);}
+.tag-new{background:#FEF2F2;color:var(--red);}
+.tag-hot{background:var(--al);color:var(--ad);}
+.tag-ext{background:#F0FDF4;color:#16A34A;}
+.tag-reopen{background:#EFF6FF;color:#2563EB;}
+.jc-right{display:flex;flex-direction:column;align-items:flex-end;gap:6px;flex-shrink:0;}
+.jc-vac{font-family:'Syne',sans-serif;font-size:16px;font-weight:800;color:var(--dark);}
+.jc-vac span{font-size:10px;font-weight:600;color:var(--muted);font-family:'Figtree',sans-serif;display:block;text-align:right;}
+.jc-foot{border-top:1px solid var(--bg3);padding:10px 18px;display:flex;align-items:center;justify-content:space-between;background:var(--bg2);flex-wrap:wrap;gap:8px;}
+.jf-dates{display:flex;gap:16px;flex-wrap:wrap;}
+.jf-date{font-size:12px;color:var(--muted);}
+.jf-date strong{color:var(--dark);font-weight:600;}
+.jf-date.urgent strong{color:var(--red);}
+.jf-btns{display:flex;gap:8px;}
+.btn-apply{background:linear-gradient(135deg,#E85D04,#C44D00);color:#fff;padding:7px 18px;border-radius:7px;font-size:12.5px;font-weight:700;text-decoration:none;white-space:nowrap;transition:opacity .15s;}
+.btn-apply:hover{opacity:.88;}
+.btn-detail{background:#fff;border:1.5px solid var(--border);color:var(--muted);padding:6px 14px;border-radius:7px;font-size:12.5px;font-weight:600;text-decoration:none;white-space:nowrap;transition:all .15s;}
+.btn-detail:hover{border-color:var(--accent);color:var(--accent);}
+
+/* Urgency strip */
+.job-card.urgent-card{border-left:4px solid var(--red);}
+.job-card.hot-card{border-left:4px solid var(--accent);}
+
+/* Pagination */
+.pagination{display:flex;gap:6px;align-items:center;justify-content:center;margin-top:24px;flex-wrap:wrap;}
+.pg-btn{width:36px;height:36px;border-radius:8px;border:1.5px solid var(--border);background:#fff;font-size:13.5px;font-weight:600;cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--muted);transition:all .15s;font-family:'Figtree',sans-serif;}
+.pg-btn:hover{border-color:var(--accent);color:var(--accent);}
+.pg-btn.act{background:var(--accent);border-color:var(--accent);color:#fff;}
+.pg-btn.pg-nav{width:auto;padding:0 14px;gap:4px;}
+
+/* No results */
+.no-results{background:#fff;border:1.5px solid var(--border);border-radius:var(--r);padding:48px;text-align:center;}
+.no-results h3{font-family:'Syne',sans-serif;font-size:18px;font-weight:700;color:var(--dark);margin-bottom:8px;}
+.no-results p{color:var(--muted);font-size:14px;}
+
+/* ── SIDEBAR ── */
+.sidebar{display:flex;flex-direction:column;gap:16px;}
+.scard{background:#fff;border:1.5px solid var(--border);border-radius:var(--r);overflow:hidden;}
+.scard-hdr{padding:12px 16px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:8px;}
+.scard-hdr-title{font-family:'Syne',sans-serif;font-size:13.5px;font-weight:700;color:var(--dark);}
+.scard-body{padding:12px 16px;}
+
+/* Sidebar quick filters */
+.qf-list{display:flex;flex-direction:column;gap:4px;}
+.qf-item{display:flex;align-items:center;justify-content:space-between;padding:7px 0;border-bottom:1px solid var(--bg3);cursor:pointer;text-decoration:none;}
+.qf-item:last-child{border-bottom:none;}
+.qf-name{font-size:13px;color:var(--dark);font-weight:500;display:flex;align-items:center;gap:8px;}
+.qf-count{font-size:11px;font-weight:700;padding:2px 8px;border-radius:20px;}
+.qf-item:hover .qf-name{color:var(--accent);}
+
+/* Sidebar deadline list */
+.dl-list{display:flex;flex-direction:column;gap:8px;}
+.dl-item{display:flex;align-items:flex-start;gap:10px;padding:8px;border-radius:8px;background:var(--bg2);}
+.dl-date{background:var(--red);color:#fff;border-radius:7px;padding:5px 8px;text-align:center;flex-shrink:0;min-width:42px;}
+.dl-day{font-family:'Syne',sans-serif;font-size:16px;font-weight:800;line-height:1;}
+.dl-mon{font-size:10px;font-weight:700;opacity:.9;}
+.dl-title{font-size:12.5px;color:var(--dark);line-height:1.4;font-weight:500;}
+.dl-org{font-size:11px;color:var(--muted);}
+
+/* Sidebar mock test promo */
+.mock-promo{background:linear-gradient(135deg,var(--dark),#2D1B69);border-radius:var(--r);padding:18px;text-align:center;}
+.mp-title{font-family:'Syne',sans-serif;font-size:15px;font-weight:800;color:#fff;margin-bottom:6px;}
+.mp-sub{font-size:12.5px;color:#94A3B8;margin-bottom:14px;}
+.mp-btn{display:inline-block;background:linear-gradient(135deg,#E85D04,#C44D00);color:#fff;padding:9px 20px;border-radius:8px;font-size:13px;font-weight:700;text-decoration:none;}
+
+/* Sidebar notify */
+.notify-box{padding:14px 16px;}
+.nb-title{font-size:13px;font-weight:700;color:var(--dark);margin-bottom:8px;}
+.nb-input{display:flex;gap:6px;}
+.nb-input input{flex:1;padding:8px 10px;border:1.5px solid var(--border);border-radius:7px;font-size:13px;font-family:'Figtree',sans-serif;outline:none;}
+.nb-input input:focus{border-color:var(--accent);}
+.nb-btn{background:var(--accent);color:#fff;border:none;padding:8px 14px;border-radius:7px;font-size:12.5px;font-weight:700;cursor:pointer;font-family:'Figtree',sans-serif;white-space:nowrap;}
+
+/* Footer */
+footer{background:var(--dark);color:#94A3B8;margin-top:0;}
+.footer-bottom{max-width:1280px;margin:0 auto;padding:18px 24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;font-size:12.5px;}
+.footer-bottom a{color:#64748B;text-decoration:none;margin-left:12px;}
+.footer-bottom a:hover{color:#FDBA74;}
+
+/* Responsive */
+@media(max-width:600px){.jc-right{display:none;}.jf-dates{display:none;}}
+
+/* Loading skeleton */
+.skeleton{background:linear-gradient(90deg,#f0f0f0 25%,#e0e0e0 50%,#f0f0f0 75%);background-size:200% 100%;animation:shimmer 1.4s infinite;border-radius:4px;}
+@keyframes shimmer{0%{background-position:200% 0}100%{background-position:-200% 0}}
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div style="background:var(--dark);padding:6px 0;font-size:12px;">
+  <div style="max-width:1280px;margin:0 auto;padding:0 24px;display:flex;justify-content:space-between;align-items:center;">
+    <div style="display:flex;gap:14px;">
+      <a href="#" style="color:#CBD5E1;text-decoration:none;">Home</a>
+      <a href="#" style="color:#CBD5E1;text-decoration:none;">About</a>
+      <a href="#" style="color:#CBD5E1;text-decoration:none;">Contact</a>
+    </div>
+    <div style="display:flex;gap:10px;align-items:center;">
+      <span style="color:#475569;">Mon, 23 Mar 2026</span>
+      <span style="background:var(--accent);color:#fff;padding:2px 9px;border-radius:20px;font-size:11px;font-weight:700;">LIVE</span>
+    </div>
+  </div>
+</div>
+
+<!-- HEADER -->
+<header>
+  <div class="nav-inner">
+    <a href="index.html" class="logo">
+      <div class="logo-icon"><svg viewBox="0 0 24 24"><path d="M20 7H4C2.9 7 2 7.9 2 9v11c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V9c0-1.1-.9-2-2-2zm-9 8H7v-2h4v2zm6-4H7v-2h10v2z"/><path d="M16 1H8C6.9 1 6 1.9 6 3v3h12V3c0-1.1-.9-2-2-2z"/></svg></div>
+      <span class="logo-text">Only<span>Jobs</span></span>
+    </a>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="latestjob.html" class="act">Latest Jobs</a>
+      <a href="mocktest.html" style="background:linear-gradient(135deg,#E85D04,#7C3AED);color:#fff;font-weight:700;padding:6px 13px;border-radius:6px;">Mock Test</a>
+      <a href="#">Results</a>
+      <a href="#">Admit Card</a>
+      <a href="#">Answer Key</a>
+      <a href="#">Syllabus</a>
+    </nav>
+    <div class="nav-right">
+      <div class="nav-search-box">
+        <input type="text" placeholder="Search jobs..." id="nav-search" oninput="liveSearch(this.value)"/>
+        <button onclick="liveSearch(document.getElementById('nav-search').value)">🔍</button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-inner">
+    <span class="ticker-tag">LATEST</span>
+    <div style="overflow:hidden;flex:1;">
+      <div class="ticker-track">
+        <span class="ti">Army Agniveer 2026 – Apply Now</span>
+        <span class="ti">UPSC CMS 2026 – Last Date 22 April</span>
+        <span class="ti">RRB ALP CEN 01/2026 Form Open</span>
+        <span class="ti">SSB Constable / HC / ASI / SI 2026</span>
+        <span class="ti">UPTET 2026 Registration Started</span>
+        <span class="ti">Navy SSR / MR INET 2026 – Apply Online</span>
+        <span class="ti">IBPS PO 2026 Notification Soon</span>
+        <span class="ti">Army Agniveer 2026 – Apply Now</span>
+        <span class="ti">UPSC CMS 2026 – Last Date 22 April</span>
+        <span class="ti">RRB ALP CEN 01/2026 Form Open</span>
+        <span class="ti">SSB Constable / HC / ASI / SI 2026</span>
+        <span class="ti">UPTET 2026 Registration Started</span>
+        <span class="ti">Navy SSR / MR INET 2026 – Apply Online</span>
+        <span class="ti">IBPS PO 2026 Notification Soon</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- BREADCRUMB -->
+<div class="breadcrumb">
+  <a href="index.html">Home</a> › <span style="color:var(--dark);font-weight:600;">Latest Government Jobs 2026</span>
+</div>
+
+<!-- PAGE -->
+<div class="page">
+
+  <!-- MAIN -->
+  <div>
+    <!-- Header band -->
+    <div class="main-hdr">
+      <div class="mh-tag">📋 Updated Daily from Official Sources</div>
+      <div class="mh-title">Latest Govt Jobs <span>2026</span></div>
+      <div class="mh-sub">Sarkari Naukri – SSC, Railway, Banking, UPSC, Defence, State PSC &amp; more</div>
+      <div class="mh-stats">
+        <div class="mhs"><div class="mhs-n" id="total-count">156</div><div class="mhs-l">Active Jobs</div></div>
+        <div class="mhs"><div class="mhs-n">12,400+</div><div class="mhs-l">Total Vacancies</div></div>
+        <div class="mhs"><div class="mhs-n">Today</div><div class="mhs-l">Last Updated</div></div>
+      </div>
+    </div>
+
+    <!-- Filter bar -->
+    <div class="filter-bar">
+      <span class="fb-label">Filter:</span>
+      <div class="filter-chips" id="filter-chips">
+        <button class="chip on" data-filter="all" onclick="setFilter('all',this)">All Jobs</button>
+        <button class="chip" data-filter="SSC" onclick="setFilter('SSC',this)">SSC</button>
+        <button class="chip" data-filter="Railway" onclick="setFilter('Railway',this)">Railway</button>
+        <button class="chip" data-filter="Banking" onclick="setFilter('Banking',this)">Banking</button>
+        <button class="chip" data-filter="Defence" onclick="setFilter('Defence',this)">Defence</button>
+        <button class="chip" data-filter="UPSC" onclick="setFilter('UPSC',this)">UPSC</button>
+        <button class="chip" data-filter="State PSC" onclick="setFilter('State PSC',this)">State PSC</button>
+        <button class="chip" data-filter="Teaching" onclick="setFilter('Teaching',this)">Teaching</button>
+        <button class="chip" data-filter="Police" onclick="setFilter('Police',this)">Police</button>
+        <button class="chip" data-filter="Court" onclick="setFilter('Court',this)">Court</button>
+      </div>
+      <div class="fb-search">
+        <input type="text" placeholder="Search..." id="main-search" oninput="liveSearch(this.value)"/>
+      </div>
+    </div>
+
+    <!-- Sort bar -->
+    <div class="sort-bar">
+      <div class="sort-left">Showing <strong id="showing-count">156</strong> jobs</div>
+      <div class="sort-right">
+        Sort by:
+        <select onchange="sortJobs(this.value)">
+          <option value="newest">Newest First</option>
+          <option value="deadline">Last Date (Soonest)</option>
+          <option value="vacancies">Most Vacancies</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Job List -->
+    <div class="job-list" id="job-list"></div>
+
+    <!-- Pagination -->
+    <div class="pagination" id="pagination"></div>
+  </div>
+
+  <!-- SIDEBAR -->
+  <div class="sidebar">
+
+    <!-- Quick category -->
+    <div class="scard">
+      <div class="scard-hdr">
+        <span style="font-size:16px;">🗂️</span>
+        <span class="scard-hdr-title">Browse by Category</span>
+      </div>
+      <div class="scard-body" style="padding:8px 0;">
+        <div class="qf-list">
+          <a class="qf-item" style="padding:7px 16px;" href="#" onclick="setFilter('SSC',null)"><span class="qf-name"><span style="font-size:15px;">📋</span>SSC Jobs</span><span class="qf-count" style="background:var(--al);color:var(--ad);">28</span></a>
+          <a class="qf-item" style="padding:7px 16px;" href="#" onclick="setFilter('Railway',null)"><span class="qf-name"><span style="font-size:15px;">🚂</span>Railway Jobs</span><span class="qf-count" style="background:var(--gl);color:var(--green);">34</span></a>
+          <a class="qf-item" style="padding:7px 16px;" href="#" onclick="setFilter('Banking',null)"><span class="qf-name"><span style="font-size:15px;">🏦</span>Banking Jobs</span><span class="qf-count" style="background:var(--pl);color:var(--purple);">18</span></a>
+          <a class="qf-item" style="padding:7px 16px;" href="#" onclick="setFilter('Defence',null)"><span class="qf-name"><span style="font-size:15px;">🛡️</span>Defence Jobs</span><span class="qf-count" style="background:var(--rl);color:var(--red);">22</span></a>
+          <a class="qf-item" style="padding:7px 16px;" href="#" onclick="setFilter('UPSC',null)"><span class="qf-name"><span style="font-size:15px;">🏛️</span>UPSC Jobs</span><span class="qf-count" style="background:var(--bl);color:var(--blue);">12</span></a>
+          <a class="qf-item" style="padding:7px 16px;" href="#" onclick="setFilter('State PSC',null)"><span class="qf-name"><span style="font-size:15px;">🏢</span>State PSC</span><span class="qf-count" style="background:var(--gl);color:var(--green);">30</span></a>
+          <a class="qf-item" style="padding:7px 16px;" href="#" onclick="setFilter('Teaching',null)"><span class="qf-name"><span style="font-size:15px;">📚</span>Teaching Jobs</span><span class="qf-count" style="background:var(--pl);color:var(--purple);">14</span></a>
+          <a class="qf-item" style="padding:7px 16px;" href="#" onclick="setFilter('Police',null)"><span class="qf-name"><span style="font-size:15px;">👮</span>Police Jobs</span><span class="qf-count" style="background:var(--al);color:var(--ad);">16</span></a>
+          <a class="qf-item" style="padding:7px 16px;" href="#" onclick="setFilter('Court',null)"><span class="qf-name"><span style="font-size:15px;">⚖️</span>Court Jobs</span><span class="qf-count" style="background:var(--bl);color:var(--blue);">8</span></a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Closing Deadlines -->
+    <div class="scard">
+      <div class="scard-hdr">
+        <span style="font-size:16px;">⏰</span>
+        <span class="scard-hdr-title">Closing Soon</span>
+      </div>
+      <div class="scard-body" style="padding:10px;">
+        <div class="dl-list">
+          <div class="dl-item">
+            <div class="dl-date" style="background:var(--red);"><div class="dl-day">25</div><div class="dl-mon">MAR</div></div>
+            <div><div class="dl-title">UPSC CMS 2026 Online Form</div><div class="dl-org">UPSC · Central Govt</div></div>
+          </div>
+          <div class="dl-item">
+            <div class="dl-date" style="background:#D97706;"><div class="dl-day">28</div><div class="dl-mon">MAR</div></div>
+            <div><div class="dl-title">SSB Constable / HC / ASI / SI</div><div class="dl-org">SSB · Central Armed Police</div></div>
+          </div>
+          <div class="dl-item">
+            <div class="dl-date" style="background:#D97706;"><div class="dl-day">30</div><div class="dl-mon">MAR</div></div>
+            <div><div class="dl-title">UPTET 2026 Online Form</div><div class="dl-org">UP Basic Education · UP State</div></div>
+          </div>
+          <div class="dl-item">
+            <div class="dl-date" style="background:var(--green);"><div class="dl-day">05</div><div class="dl-mon">APR</div></div>
+            <div><div class="dl-title">Army Agniveer Rally 2026</div><div class="dl-org">Indian Army · Defence</div></div>
+          </div>
+          <div class="dl-item">
+            <div class="dl-date" style="background:var(--green);"><div class="dl-day">10</div><div class="dl-mon">APR</div></div>
+            <div><div class="dl-title">IDBI Bank JAM / Asst Manager</div><div class="dl-org">IDBI Bank · Banking</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mock Test Promo -->
+    <div class="mock-promo">
+      <div style="font-size:32px;margin-bottom:8px;">📝</div>
+      <div class="mp-title">Prepare for These Jobs</div>
+      <div class="mp-sub">Free mock tests for SSC, Railway, Banking & UPSC with live national rankings.</div>
+      <a href="mocktest.html" class="mp-btn">Start Free Mock Test →</a>
+    </div>
+
+    <!-- Notify me -->
+    <div class="scard">
+      <div class="scard-hdr">
+        <span style="font-size:16px;">🔔</span>
+        <span class="scard-hdr-title">Job Alert — Free</span>
+      </div>
+      <div class="notify-box">
+        <div class="nb-title">Get new jobs in your inbox daily</div>
+        <div class="nb-input">
+          <input type="email" placeholder="yourname@email.com" id="notify-email"/>
+          <button class="nb-btn" onclick="subscribe()">Subscribe</button>
+        </div>
+        <div id="sub-msg" style="font-size:12px;color:var(--green);margin-top:7px;display:none;">✅ Subscribed! Check your email.</div>
+      </div>
+    </div>
+
+    <!-- Quick links -->
+    <div class="scard">
+      <div class="scard-hdr"><span style="font-size:16px;">🔗</span><span class="scard-hdr-title">Quick Links</span></div>
+      <div class="scard-body" style="padding:8px 0;">
+        <div class="qf-list">
+          <a class="qf-item" style="padding:7px 16px;text-decoration:none;" href="#"><span class="qf-name" style="font-size:13px;">📄 Results 2026</span></a>
+          <a class="qf-item" style="padding:7px 16px;text-decoration:none;" href="#"><span class="qf-name" style="font-size:13px;">🪪 Admit Card</span></a>
+          <a class="qf-item" style="padding:7px 16px;text-decoration:none;" href="#"><span class="qf-name" style="font-size:13px;">🔑 Answer Key</span></a>
+          <a class="qf-item" style="padding:7px 16px;text-decoration:none;" href="#"><span class="qf-name" style="font-size:13px;">📘 Syllabus</span></a>
+          <a class="qf-item" style="padding:7px 16px;text-decoration:none;" href="mocktest.html"><span class="qf-name" style="font-size:13px;">📝 Mock Test</span></a>
+          <a class="qf-item" style="padding:7px 16px;text-decoration:none;" href="auth.html"><span class="qf-name" style="font-size:13px;">👤 My Dashboard</span></a>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /sidebar -->
+
+</div><!-- /page -->
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-bottom">
+    <span>© 2026 OnlyJobs · All information sourced from official websites. Verify before applying.</span>
+    <div><a href="#">Privacy</a><a href="#">Terms</a><a href="#">Contact</a><a href="#">Disclaimer</a></div>
+  </div>
+</footer>
+
+<script>
+/* ══════════════════════════════════════
+   COMPLETE JOB DATABASE – 60 real notifications
+══════════════════════════════════════ */
+const JOBS = [
+  /* SSC */
+  {id:1,title:'SSC CGL 2026 – Combined Graduate Level Online Form',org:'Staff Selection Commission (SSC)',cat:'SSC',state:'Central Govt',edu:'Graduate',icon:'📋',vacancies:17727,applyStart:'01 Feb 2026',lastDate:'25 Apr 2026',examDate:'Jun–Jul 2026',fee:'₹100 (Gen/OBC) · Free (SC/ST/Female/PH)',salary:'₹25,500–1,00,000',badge:'hot',officialLink:'https://ssc.nic.in'},
+  {id:2,title:'SSC CHSL 2025–26 – Combined Higher Secondary Level',org:'Staff Selection Commission (SSC)',cat:'SSC',state:'Central Govt',edu:'10+2 Pass',icon:'📋',vacancies:3712,applyStart:'16 Jan 2026',lastDate:'15 Mar 2026',examDate:'May–Jun 2026',fee:'₹100 (Gen) · Free (SC/ST/Female)',salary:'₹19,900–63,200',badge:'new',officialLink:'https://ssc.nic.in'},
+  {id:3,title:'SSC GD Constable 2025 – Exam 2026',org:'Staff Selection Commission (SSC)',cat:'SSC',state:'Central Govt',edu:'10th Pass',icon:'📋',vacancies:39481,applyStart:'Notified','lastDate':'31 Jan 2026',examDate:'Feb–Mar 2026',fee:'₹100',salary:'₹21,700–69,100',badge:'hot',officialLink:'https://ssc.nic.in'},
+  {id:4,title:'SSC MTS & Havaldar 2025 Online Form',org:'Staff Selection Commission (SSC)',cat:'SSC',state:'Central Govt',edu:'10th Pass',icon:'📋',vacancies:8326,applyStart:'Notified',lastDate:'02 Apr 2026',examDate:'May 2026',fee:'₹100',salary:'₹18,000–56,900',badge:'',officialLink:'https://ssc.nic.in'},
+  {id:5,title:'SSC Junior Engineer JE Civil / Electrical 2025',org:'Staff Selection Commission (SSC)',cat:'SSC',state:'Central Govt',edu:'Diploma/BE',icon:'📋',vacancies:968,applyStart:'Notified',lastDate:'15 Mar 2026',examDate:'Apr–May 2026',fee:'₹100',salary:'₹35,400–1,12,400',badge:'',officialLink:'https://ssc.nic.in'},
+  {id:6,title:'SSC Selection Post Phase XIII 2025',org:'Staff Selection Commission (SSC)',cat:'SSC',state:'Central Govt',edu:'10th/12th/Graduate',icon:'📋',vacancies:2423,applyStart:'Notified',lastDate:'Apr 2026',examDate:'Jun 2026',fee:'₹100',salary:'Various',badge:'',officialLink:'https://ssc.nic.in'},
+
+  /* Railway */
+  {id:7,title:'Railway RRB ALP CEN 01/2026 – Assistant Loco Pilot',org:'Railway Recruitment Board (RRB)',cat:'Railway',state:'Central Govt',edu:'ITI/Diploma',icon:'🚂',vacancies:9970,applyStart:'12 Feb 2026',lastDate:'13 Mar 2026',examDate:'Apr–May 2026',fee:'₹500 (Gen) · ₹250 (SC/ST/Female/Ex-SM)',salary:'₹19,900–63,200',badge:'hot',officialLink:'https://rrbcdg.gov.in'},
+  {id:8,title:'Railway RRB NTPC Graduate Level CEN 06/2025',org:'Railway Recruitment Board (RRB)',cat:'Railway',state:'Central Govt',edu:'Graduate',icon:'🚂',vacancies:11558,applyStart:'Notified',lastDate:'24 Feb 2026',examDate:'Apr 2026',fee:'₹500 (Gen) · ₹250 (SC/ST/Female)',salary:'₹21,700–92,300',badge:'hot',officialLink:'https://rrbcdg.gov.in'},
+  {id:9,title:'Railway RRC SCR Apprentice March 2026',org:'South Central Railway (RRC SCR)',cat:'Railway',state:'Andhra Pradesh / Telangana',edu:'10th + ITI',icon:'🚂',vacancies:4103,applyStart:'15 Feb 2026',lastDate:'15 Mar 2026',examDate:'Merit Based',fee:'₹100',salary:'Stipend ₹6,000–7,000/month',badge:'new',officialLink:'https://scr.indianrailways.gov.in'},
+  {id:10,title:'Railway RRB Technician CEN 02/2025',org:'Railway Recruitment Board (RRB)',cat:'Railway',state:'Central Govt',edu:'10th + ITI',icon:'🚂',vacancies:6238,applyStart:'Notified',lastDate:'Feb 2026',examDate:'Mar–Apr 2026',fee:'₹500',salary:'₹19,900–63,200',badge:'',officialLink:'https://rrbcdg.gov.in'},
+  {id:11,title:'Railway RRC CR Apprentices Online Form 2026',org:'Central Railway (RRC CR)',cat:'Railway',state:'Maharashtra',edu:'10th + ITI',icon:'🚂',vacancies:2422,applyStart:'10 Feb 2026',lastDate:'10 Mar 2026',examDate:'Merit Based',fee:'₹100',salary:'Stipend Based',badge:'new',officialLink:'https://rrccr.com'},
+  {id:12,title:'Railway RRB Paramedical CEN 05/2025 – Exam 2026',org:'Railway Recruitment Board (RRB)',cat:'Railway',state:'Central Govt',edu:'Diploma/Degree (Medical)',icon:'🚂',vacancies:1376,applyStart:'Notified',lastDate:'Mar 2026',examDate:'Mar 2026',fee:'₹500',salary:'₹35,400–1,12,400',badge:'',officialLink:'https://rrbcdg.gov.in'},
+
+  /* Banking */
+  {id:13,title:'IDBI Bank Junior Associate Manager (JAM) & Asst Manager 2026',org:'IDBI Bank Limited',cat:'Banking',state:'All India',edu:'Graduate (Any)',icon:'🏦',vacancies:1000,applyStart:'10 Mar 2026',lastDate:'10 Apr 2026',examDate:'May 2026',fee:'₹1000 (Gen) · ₹200 (SC/ST/PH)',salary:'₹23,700–42,020',badge:'new',officialLink:'https://idbibank.in'},
+  {id:14,title:'Bank of Baroda Office Assistant / Peon 2026',org:'Bank of Baroda (BOB)',cat:'Banking',state:'All India',edu:'10th/12th Pass',icon:'🏦',vacancies:500,applyStart:'Notified',lastDate:'Mar 2026',examDate:'Apr 2026',fee:'₹600 (Gen) · ₹100 (SC/ST)',salary:'₹15,000–17,000',badge:'',officialLink:'https://bankofbaroda.in'},
+  {id:15,title:'IBPS RRB Office Assistant (Multipurpose) 15th Cycle 2026',org:'IBPS – Institute of Banking Personnel Selection',cat:'Banking',state:'All India',edu:'Graduate',icon:'🏦',vacancies:9000,applyStart:'Apr 2026 (Expected)',lastDate:'Apr 2026',examDate:'Aug 2026',fee:'₹175 (SC/ST) · ₹850 (Others)',salary:'₹19,900–47,920',badge:'',officialLink:'https://ibps.in'},
+  {id:16,title:'SBI Clerk (Junior Associate) 2025–26 Online Form',org:'State Bank of India (SBI)',cat:'Banking',state:'All India',edu:'Graduate',icon:'🏦',vacancies:14191,applyStart:'17 Dec 2025',lastDate:'07 Jan 2026',examDate:'Mains: Mar 2026',fee:'₹750 (Gen) · Free (SC/ST/PH)',salary:'₹26,000–31,500/month',badge:'',officialLink:'https://sbi.co.in/careers'},
+  {id:17,title:'UPSSSC Assistant Statistical Officer (ASO) 2026',org:'UPSSSC – UP Subordinate Service Commission',cat:'State PSC',state:'Uttar Pradesh',edu:'Graduate (Statistics/Maths)',icon:'🏢',vacancies:175,applyStart:'15 Mar 2026',lastDate:'15 Apr 2026',examDate:'Jun 2026',fee:'₹25 (Gen) · ₹25 (OBC)',salary:'₹9,300–34,800 + GP ₹4200',badge:'new',officialLink:'https://upsssc.gov.in'},
+
+  /* Defence */
+  {id:18,title:'Indian Army Agniveer Rally Recruitment 2026',org:'Indian Army',cat:'Defence',state:'All India',edu:'10th / 12th Pass',icon:'🛡️',vacancies:25000,applyStart:'01 Mar 2026',lastDate:'05 Apr 2026',examDate:'Rally-based',fee:'Free',salary:'₹30,000–40,000/month + benefits',badge:'hot',officialLink:'https://joinindianarmy.nic.in'},
+  {id:19,title:'Indian Navy SSR / MR INET 2026 Online Form',org:'Indian Navy',cat:'Defence',state:'All India',edu:'12th Pass (PCM for SSR)',icon:'🛡️',vacancies:2800,applyStart:'15 Feb 2026',lastDate:'15 Mar 2026',examDate:'Apr 2026',fee:'Free',salary:'₹21,700–69,100',badge:'new',officialLink:'https://joinindiannavy.gov.in'},
+  {id:20,title:'Indian Navy SSR Medical INET 02/2027 Online Form',org:'Indian Navy',cat:'Defence',state:'All India',edu:'12th Pass (Bio/Chem)',icon:'🛡️',vacancies:450,applyStart:'20 Feb 2026',lastDate:'20 Mar 2026',examDate:'Apr–May 2026',fee:'Free',salary:'₹21,700–69,100',badge:'new',officialLink:'https://joinindiannavy.gov.in'},
+  {id:21,title:'Army BSc Nursing Admissions 2026 Online Form',org:'Indian Army (AFMC)',cat:'Defence',state:'All India',edu:'12th Pass (PCB + English)',icon:'🛡️',vacancies:220,applyStart:'Notified',lastDate:'Mar 2026',examDate:'May 2026',fee:'₹500',salary:'₹56,100/month (Commissioned Officer)',badge:'',officialLink:'https://www.joinindianarmy.nic.in'},
+  {id:22,title:'DRDO CEPTAM 11 – Technician A & STA Posts 2025',org:'DRDO (Defence R&D Organisation)',cat:'Defence',state:'All India',edu:'10th / ITI / Graduate',icon:'🛡️',vacancies:819,applyStart:'Notified',lastDate:'Feb 2026',examDate:'Mar–Apr 2026',fee:'₹100 (Gen/OBC) · Free (SC/ST/Female)',salary:'₹18,000–1,42,400',badge:'',officialLink:'https://www.drdo.gov.in'},
+  {id:23,title:'SSB – Constable, HC, ASI, SI Online Form 2026',org:'Sashastra Seema Bal (SSB)',cat:'Defence',state:'All India',edu:'10th / 12th / Graduate',icon:'🛡️',vacancies:1120,applyStart:'01 Mar 2026',lastDate:'28 Mar 2026',examDate:'May 2026',fee:'₹100 (Gen/OBC) · Free (SC/ST/Female/Ex-SM)',salary:'₹21,700–92,300',badge:'hot',officialLink:'https://ssb.nic.in'},
+
+  /* UPSC */
+  {id:24,title:'UPSC Combined Medical Services (CMS) 2026',org:'Union Public Service Commission (UPSC)',cat:'UPSC',state:'Central Govt',edu:'MBBS Degree',icon:'🏛️',vacancies:705,applyStart:'05 Mar 2026',lastDate:'25 Mar 2026',examDate:'22 Jun 2026',fee:'₹200 · Free (Female/SC/ST/PH/Ex-SM)',salary:'₹56,100–2,50,000 (PB-3)',badge:'hot',officialLink:'https://upsc.gov.in'},
+  {id:25,title:'UPSC Civil Services IAS/IFS Prelims 2026',org:'Union Public Service Commission (UPSC)',cat:'UPSC',state:'Central Govt',edu:'Graduate (Any)',icon:'🏛️',vacancies:979,applyStart:'Jan 2026',lastDate:'18 Feb 2026',examDate:'Prelims: 25 May 2026',fee:'₹100 · Free (Female/SC/ST/PH)',salary:'₹56,100–2,50,000',badge:'',officialLink:'https://upsc.gov.in'},
+  {id:26,title:'UPSC NDA & NA Exam I 2026',org:'Union Public Service Commission (UPSC)',cat:'UPSC',state:'Central Govt',edu:'12th Pass (PCM for Navy/Air Force)',icon:'🏛️',vacancies:406,applyStart:'11 Dec 2025',lastDate:'31 Dec 2025',examDate:'13 Apr 2026',fee:'₹100',salary:'₹56,100–1,77,500',badge:'',officialLink:'https://upsc.gov.in'},
+  {id:27,title:'UPSC ESE / IES – Engineering Services Exam 2026',org:'Union Public Service Commission (UPSC)',cat:'UPSC',state:'Central Govt',edu:'BE / B.Tech (Relevant branch)',icon:'🏛️',vacancies:247,applyStart:'Notified',lastDate:'Mar 2026',examDate:'Jun 2026',fee:'₹200',salary:'₹56,100–2,25,000',badge:'',officialLink:'https://upsc.gov.in'},
+
+  /* State PSC */
+  {id:28,title:'BPSC Civil Judge PCS-J Online Form 33rd Exam 2026',org:'Bihar Public Service Commission (BPSC)',cat:'State PSC',state:'Bihar',edu:'Law Degree (LLB)',icon:'🏢',vacancies:138,applyStart:'12 Mar 2026',lastDate:'31 Mar 2026',examDate:'Jun 2026',fee:'₹750 (Gen) · ₹200 (SC/ST Bihar)',salary:'₹27,700–44,770',badge:'new',officialLink:'https://bpsc.bih.nic.in'},
+  {id:29,title:'UPPSC GIC Lecturer – Govt. Intermediate College 2025',org:'UP Public Service Commission (UPPSC)',cat:'State PSC',state:'Uttar Pradesh',edu:'PG + B.Ed',icon:'🏢',vacancies:2049,applyStart:'Notified',lastDate:'Mar 2026 (Extended)',examDate:'Jun 2026',fee:'₹80–125',salary:'₹15,600–39,100 + GP 5400',badge:'ext',officialLink:'https://uppsc.up.nic.in'},
+  {id:30,title:'MPESB Group 5 Various Posts Online Form 2026',org:'MP Employee Selection Board (MPESB)',cat:'State PSC',state:'Madhya Pradesh',edu:'10th / 12th / Graduate',icon:'🏢',vacancies:5211,applyStart:'15 Mar 2026',lastDate:'14 Apr 2026',examDate:'May–Jun 2026',fee:'₹500 (Gen) · ₹250 (SC/ST/OBC MP)',salary:'Various Pay Scales',badge:'new',officialLink:'https://esb.mp.gov.in'},
+  {id:31,title:'UPSSSC Teacher Cadre Online Form 2026',org:'UPSSSC',cat:'State PSC',state:'Uttar Pradesh',edu:'Graduate + TET Qualified',icon:'🏢',vacancies:3200,applyStart:'20 Mar 2026',lastDate:'20 Apr 2026',examDate:'Jun 2026',fee:'₹25 (Gen/OBC) · ₹25 (SC/ST)',salary:'₹9,300–34,800',badge:'new',officialLink:'https://upsssc.gov.in'},
+  {id:32,title:'HSSC Haryana Stenographer Online Form 2026',org:'Haryana SSC (HSSC)',cat:'State PSC',state:'Haryana',edu:'12th Pass + Stenography',icon:'🏢',vacancies:673,applyStart:'Notified',lastDate:'Mar 2026 (Reopen)',examDate:'May 2026',fee:'₹150 (Gen) · ₹75 (SC/BC-A Haryana)',salary:'₹10,900–34,800',badge:'reopen',officialLink:'https://hssc.gov.in'},
+  {id:33,title:'HSSC Haryana Constable Online Form 2026',org:'Haryana SSC (HSSC)',cat:'State PSC',state:'Haryana',edu:'12th Pass',icon:'🏢',vacancies:5500,applyStart:'Notified',lastDate:'Mar 2026 (Reopen)',examDate:'Jun 2026',fee:'₹150 (Gen) · ₹75 (SC/BC-A Haryana)',salary:'₹21,700–69,100',badge:'reopen',officialLink:'https://hssc.gov.in'},
+  {id:34,title:'UPSSSC Pharmacist Online Form 2026',org:'UPSSSC',cat:'State PSC',state:'Uttar Pradesh',edu:'D.Pharma / B.Pharma',icon:'🏢',vacancies:2526,applyStart:'05 Mar 2026',lastDate:'05 Apr 2026',examDate:'Jun 2026',fee:'₹25',salary:'₹9,300–34,800 + GP 2800',badge:'new',officialLink:'https://upsssc.gov.in'},
+  {id:35,title:'RPSC Assistant Engineer (AE) Civil / Electrical 2024',org:'Rajasthan Public Service Commission (RPSC)',cat:'State PSC',state:'Rajasthan',edu:'BE/B.Tech',icon:'🏢',vacancies:910,applyStart:'Notified',lastDate:'Closed',examDate:'Mains 2026',fee:'₹350 (Gen) · ₹250 (OBC/SC/ST Raj)',salary:'₹15,600–39,100 + GP 5400',badge:'',officialLink:'https://rpsc.rajasthan.gov.in'},
+
+  /* Teaching */
+  {id:36,title:'UPTET 2026 – Uttar Pradesh Teacher Eligibility Test',org:'UP Basic Education Board',cat:'Teaching',state:'Uttar Pradesh',edu:'Graduate + D.El.Ed/B.Ed',icon:'📚',vacancies:null,applyStart:'25 Mar 2026',lastDate:'30 Mar 2026',examDate:'25 Apr 2026',fee:'₹600 (Gen) · ₹400 (SC/ST UP)',salary:'Eligibility for Teacher Posts',badge:'hot',officialLink:'https://updeled.gov.in'},
+  {id:37,title:'NTA CTET February 2026 Online Form',org:'National Testing Agency (NTA)',cat:'Teaching',state:'All India',edu:'Graduate + D.El.Ed/B.Ed',icon:'📚',vacancies:null,applyStart:'Notified',lastDate:'Closed',examDate:'Feb 2026',fee:'₹1000 (Paper I/II Gen) · ₹500 (SC/ST)',salary:'Eligibility for Central Govt Teachers',badge:'',officialLink:'https://ctet.nic.in'},
+  {id:38,title:'KVS – Kendriya Vidyalaya Teaching & Non-Teaching 2025',org:'Kendriya Vidyalaya Sangathan (KVS)',cat:'Teaching',state:'All India',edu:'Graduate/PG + B.Ed',icon:'📚',vacancies:13404,applyStart:'Notified',lastDate:'Closed',examDate:'Tier II 2026',fee:'₹1500 (Gen) · ₹1000 (OBC) · Free (SC/ST/PH/Female)',salary:'₹35,400–1,12,400',badge:'',officialLink:'https://kvsangathan.nic.in'},
+  {id:39,title:'EMRS Teaching & Non-Teaching Posts Tier II 2026',org:'Eklavya Model Residential Schools (EMRS)',cat:'Teaching',state:'All India (Tribal Areas)',edu:'Graduate/PG + B.Ed',icon:'📚',vacancies:6000,applyStart:'Notified',lastDate:'Exam 2026',examDate:'Mar 2026',fee:'₹1200 (Gen) · Free (SC/ST/PH)',salary:'₹44,900–1,42,400',badge:'',officialLink:'https://emrs.tribal.gov.in'},
+  {id:40,title:'NTA NVS PGT / TGT / PRT Non-Teaching 2026',org:'Navodaya Vidyalaya Samiti (NVS)',cat:'Teaching',state:'All India',edu:'PG/Graduate + B.Ed',icon:'📚',vacancies:3765,applyStart:'Notified',lastDate:'Closed',examDate:'2026',fee:'₹1200 (Gen)',salary:'₹44,900–1,42,400',badge:'',officialLink:'https://navodaya.gov.in'},
+
+  /* Police */
+  {id:41,title:'UP Police Sub Inspector (SI) Recruitment 2025',org:'UP Police Recruitment & Promotion Board',cat:'Police',state:'Uttar Pradesh',edu:'Graduate (Any)',icon:'👮',vacancies:3572,applyStart:'Notified',lastDate:'Closed',examDate:'Admit Card 2026',fee:'₹400 (Gen) · ₹400 (OBC) · Free (SC/ST)',salary:'₹9,300–34,800 + GP 4200',badge:'',officialLink:'https://uppbpb.gov.in'},
+  {id:42,title:'CSBC Bihar Police Constable Operator Online Form 2026',org:'Central Selection Board of Constables (CSBC)',cat:'Police',state:'Bihar',edu:'12th Pass + relevant skills',icon:'👮',vacancies:1200,applyStart:'15 Feb 2026',lastDate:'Mar 2026',examDate:'Jun 2026',fee:'₹450 (Gen/OBC) · ₹112 (SC/ST)',salary:'₹21,700–69,100',badge:'new',officialLink:'https://csbc.bih.nic.in'},
+  {id:43,title:'Delhi Police Constable Executive 2026',org:'Delhi Police',cat:'Police',state:'Delhi',edu:'12th Pass',icon:'👮',vacancies:5000,applyStart:'Expected Apr 2026',lastDate:'Apr 2026',examDate:'Jun 2026',fee:'₹100 (Gen/OBC) · Free (SC/ST/Ex-SM)',salary:'₹21,700–69,100',badge:'',officialLink:'https://delhipolice.gov.in'},
+  {id:44,title:'MPESB MP Police ASI / HC Computer 2026',org:'MPESB – MP Police',cat:'Police',state:'Madhya Pradesh',edu:'12th Pass + Computer Knowledge',icon:'👮',vacancies:7090,applyStart:'Notified',lastDate:'Feb 2026',examDate:'Mar 2026',fee:'₹500 (Gen) · ₹250 (SC/ST/OBC MP)',salary:'₹19,500–62,000',badge:'',officialLink:'https://esb.mp.gov.in'},
+  {id:45,title:'UPSRTC Bus Conductor Online Form 2026',org:'UPSRTC – UP State Road Transport',cat:'State PSC',state:'Uttar Pradesh',edu:'12th Pass + Valid Licence',icon:'🏢',vacancies:1306,applyStart:'10 Mar 2026',lastDate:'31 Mar 2026',examDate:'Merit-Based',fee:'₹200 (Gen/OBC) · ₹100 (SC/ST UP)',salary:'₹5,200–20,200 + GP 1800',badge:'new',officialLink:'https://upsrtc.com'},
+
+  /* Court */
+  {id:46,title:'Allahabad High Court Private Secretary Online Form 2026',org:'Allahabad High Court (AHC)',cat:'Court',state:'Uttar Pradesh',edu:'Graduate + Shorthand/Typing',icon:'⚖️',vacancies:152,applyStart:'05 Mar 2026',lastDate:'28 Mar 2026',examDate:'May 2026',fee:'₹500 (Gen) · ₹300 (SC/ST UP)',salary:'₹15,600–39,100 + GP 5400',badge:'new',officialLink:'https://allahabadhighcourt.in'},
+  {id:47,title:'BPSC Civil Judge PCS-J 33rd Exam 2026',org:'Bihar Public Service Commission',cat:'Court',state:'Bihar',edu:'LLB Degree',icon:'⚖️',vacancies:138,applyStart:'12 Mar 2026',lastDate:'31 Mar 2026',examDate:'Jun 2026',fee:'₹750 (Gen/OBC) · ₹200 (SC/ST Bihar)',salary:'₹27,700–44,770',badge:'new',officialLink:'https://bpsc.bih.nic.in'},
+  {id:48,title:'Delhi High Court JJA / Restorer Online Form 2026',org:'Delhi High Court',cat:'Court',state:'Delhi',edu:'Graduate (Any)',icon:'⚖️',vacancies:378,applyStart:'Notified',lastDate:'Mar 2026',examDate:'May 2026',fee:'₹500 (Gen) · ₹200 (SC/ST)',salary:'₹19,900–63,200',badge:'',officialLink:'https://delhihighcourt.nic.in'},
+  {id:49,title:'Delhi DSSSB Various Posts Advt 02/2026 Online Form',org:'Delhi Subordinate Services Selection Board (DSSSB)',cat:'State PSC',state:'Delhi',edu:'10th / 12th / Graduate (as per post)',icon:'🏢',vacancies:5117,applyStart:'15 Mar 2026',lastDate:'13 Apr 2026',examDate:'Jun–Jul 2026',fee:'₹100 (Gen/OBC) · Free (SC/ST/PH/Ex-SM)',salary:'₹18,000–1,77,500 (various pay matrices)',badge:'hot',officialLink:'https://dsssb.delhi.gov.in'},
+  {id:50,title:'Delhi DSSSB AE / JE / ASO & Legal Assistant 2026',org:'DSSSB',cat:'Court',state:'Delhi',edu:'Graduate/BE (as per post)',icon:'⚖️',vacancies:1862,applyStart:'10 Mar 2026',lastDate:'08 Apr 2026',examDate:'Jun 2026',fee:'₹100',salary:'₹35,400–1,12,400',badge:'new',officialLink:'https://dsssb.delhi.gov.in'},
+
+  /* Other */
+  {id:51,title:'UPSSSC Assistant Boring Technician Online Form 2026',org:'UPSSSC',cat:'State PSC',state:'Uttar Pradesh',edu:'ITI (Mechanical/Electrical)',icon:'🏢',vacancies:2300,applyStart:'10 Mar 2026',lastDate:'10 Apr 2026',examDate:'Jun 2026',fee:'₹25 (Gen/OBC) · ₹25 (SC/ST)',salary:'₹5,200–20,200 + GP 1900',badge:'new',officialLink:'https://upsssc.gov.in'},
+  {id:52,title:'NTA NEET UG 2026 Online Form',org:'National Testing Agency (NTA)',cat:'Teaching',state:'All India',edu:'12th (PCB)',icon:'📚',vacancies:null,applyStart:'Feb 2026',lastDate:'Mar 2026',examDate:'04 May 2026',fee:'₹1700 (Gen) · ₹1000 (Gen-EWS/OBC) · ₹1000 (SC/ST/PH)',salary:'Medical Admissions',badge:'hot',officialLink:'https://nta.ac.in'},
+  {id:53,title:'NIELIT CCC Online Form 2026',org:'National Institute of Electronics & IT (NIELIT)',cat:'State PSC',state:'All India',edu:'No Minimum Qualification',icon:'🏢',vacancies:null,applyStart:'Ongoing',lastDate:'Ongoing',examDate:'Monthly',fee:'₹590',salary:'Computer Literacy Certificate',badge:'',officialLink:'https://student.nielit.gov.in'},
+  {id:54,title:'India Post GDS – Gramin Dak Sevak Recruitment 2026',org:'Department of Posts, India',cat:'State PSC',state:'All States',edu:'10th Pass',icon:'🏢',vacancies:44228,applyStart:'Notified',lastDate:'Feb 2026',examDate:'Merit-Based',fee:'₹100 (Gen/OBC Male) · Free (Female/SC/ST/PH)',salary:'₹10,000–14,500/month (TRCA)',badge:'',officialLink:'https://indiapostgdsonline.gov.in'},
+  {id:55,title:'MPESB Van Rakshak / Jail Prahari Online Form 2026',org:'MPESB – Government of MP',cat:'State PSC',state:'Madhya Pradesh',edu:'12th Pass',icon:'🏢',vacancies:4080,applyStart:'Notified',lastDate:'Mar 2026 (Extended)',examDate:'Apr–May 2026',fee:'₹500 (Gen) · ₹250 (SC/ST/OBC MP)',salary:'₹5,200–20,200',badge:'ext',officialLink:'https://esb.mp.gov.in'},
+  {id:56,title:'UPSC CDS I 2026 Online Form',org:'Union Public Service Commission (UPSC)',cat:'UPSC',state:'Central Govt',edu:'Graduate (BE for Tech) / 12th (NDA)',icon:'🏛️',vacancies:457,applyStart:'11 Dec 2025',lastDate:'31 Dec 2025',examDate:'13 Apr 2026',fee:'₹200 · Free (Female/SC/ST/PH)',salary:'₹56,100/month + allowances',badge:'',officialLink:'https://upsc.gov.in'},
+  {id:57,title:'NCERT Group A, B, C Various Posts 2025',org:'NCERT',cat:'Teaching',state:'Central Govt',edu:'Graduate/PG (as per post)',icon:'📚',vacancies:347,applyStart:'Notified',lastDate:'Closed',examDate:'Exam 2026',fee:'₹500 (Gen) · Free (SC/ST/PH/Female)',salary:'₹18,000–2,08,700 (various)',badge:'',officialLink:'https://ncert.nic.in'},
+  {id:58,title:'UPSSSC Junior Engineer JE Civil 2024 Online Form',org:'UPSSSC',cat:'State PSC',state:'Uttar Pradesh',edu:'Diploma (Civil Engineering)',icon:'🏢',vacancies:1941,applyStart:'Notified',lastDate:'Closed',examDate:'Exam Date 2026',fee:'₹25',salary:'₹9,300–34,800 + GP 4200',badge:'',officialLink:'https://upsssc.gov.in'},
+  {id:59,title:'Bihar DCECE (Polytechnic) Admissions Online Form 2026',org:'BCECEB Bihar',cat:'Teaching',state:'Bihar',edu:'10th Pass + Science/Maths',icon:'📚',vacancies:null,applyStart:'20 Mar 2026',lastDate:'20 Apr 2026',examDate:'Jun 2026',fee:'₹750 (Gen) · ₹350 (SC/ST Bihar)',salary:'Polytechnic Admissions',badge:'new',officialLink:'https://bceceboard.bihar.gov.in'},
+  {id:60,title:'MPESB ITI Training Officer & Various Posts 2026',org:'MPESB – Government of MP',cat:'State PSC',state:'Madhya Pradesh',edu:'BE/B.Tech / ITI / Graduate (as per post)',icon:'🏢',vacancies:2680,applyStart:'Notified',lastDate:'Mar 2026',examDate:'May 2026',fee:'₹500 (Gen) · ₹250 (SC/ST/OBC MP)',salary:'Various Pay Scales',badge:'',officialLink:'https://esb.mp.gov.in'},
+];
+
+/* ══════════════════════════════════════
+   STATE
+══════════════════════════════════════ */
+let filteredJobs = [...JOBS];
+let currentFilter = 'all';
+let searchQuery = '';
+let currentPage = 1;
+const PER_PAGE = 15;
+
+/* ══════════════════════════════════════
+   RENDER
+══════════════════════════════════════ */
+function renderJobs() {
+  const list = document.getElementById('job-list');
+  const start = (currentPage - 1) * PER_PAGE;
+  const pageJobs = filteredJobs.slice(start, start + PER_PAGE);
+
+  document.getElementById('showing-count').textContent = filteredJobs.length;
+  document.getElementById('total-count').textContent = filteredJobs.length;
+
+  if (!pageJobs.length) {
+    list.innerHTML = `<div class="no-results"><h3>No jobs found</h3><p>Try a different filter or search term.</p></div>`;
+    document.getElementById('pagination').innerHTML = '';
+    return;
+  }
+
+  const badgeMap = {
+    new: '<span class="tag tag-new">NEW</span>',
+    hot: '<span class="tag tag-hot">🔥 HOT</span>',
+    ext: '<span class="tag tag-ext">EXTENDED</span>',
+    reopen: '<span class="tag tag-reopen">RE-OPEN</span>',
+  };
+
+  const iconBg = {
+    SSC:'#FFF3EB', Railway:'#ECFDF5', Banking:'#F5F3FF', Defence:'#FEF2F2',
+    UPSC:'#EFF6FF', 'State PSC':'#F0F2F8', Teaching:'#EFF6FF', Police:'#FEF2F2', Court:'#F5F3FF'
+  };
+
+  list.innerHTML = pageJobs.map(j => {
+    const isUrgent = j.badge !== 'new' && j.badge !== 'hot' && j.lastDate && daysLeft(j.lastDate) <= 5;
+    const urgentClass = j.badge === 'hot' ? 'hot-card' : (isUrgent ? 'urgent-card' : '');
+    const vac = j.vacancies ? j.vacancies.toLocaleString('en-IN') + '<span>Vacancies</span>' : '<span>Various</span>';
+    const urgentDate = isUrgent ? 'urgent' : '';
+    const dLeft = j.lastDate !== 'Closed' && j.lastDate !== 'Ongoing' ? daysLeftLabel(j.lastDate) : '';
+    return `
+    <div class="job-card ${urgentClass}" onclick="openJob('${j.officialLink}')">
+      <div class="jc-inner">
+        <div class="jc-top">
+          <div class="jc-org-icon" style="background:${iconBg[j.cat]||'#F7F8FC'}">${j.icon}</div>
+          <div class="jc-info">
+            <div class="jc-title"><a href="${j.officialLink}" target="_blank" onclick="event.stopPropagation()">${j.title}</a></div>
+            <div class="jc-org">${j.org}</div>
+            <div class="jc-tags">
+              <span class="tag tag-cat">${j.cat}</span>
+              <span class="tag tag-state">${j.state}</span>
+              <span class="tag tag-edu">${j.edu}</span>
+              ${j.badge ? badgeMap[j.badge]||'' : ''}
+              ${dLeft ? `<span class="tag" style="background:#FEF2F2;color:#DC2626;">${dLeft}</span>` : ''}
+            </div>
+          </div>
+          <div class="jc-right">
+            <div class="jc-vac">${vac}</div>
+            <a href="${j.officialLink}" target="_blank" onclick="event.stopPropagation()" class="btn-apply">Apply Online</a>
+          </div>
+        </div>
+      </div>
+      <div class="jc-foot">
+        <div class="jf-dates">
+          <div class="jf-date"><strong>Start:</strong> ${j.applyStart}</div>
+          <div class="jf-date ${urgentDate}"><strong>Last Date:</strong> ${j.lastDate}</div>
+          ${j.examDate ? `<div class="jf-date"><strong>Exam:</strong> ${j.examDate}</div>` : ''}
+          ${j.salary ? `<div class="jf-date"><strong>Salary:</strong> ${j.salary}</div>` : ''}
+        </div>
+        <div class="jf-btns">
+          <a href="#" onclick="event.stopPropagation();showDetail(${j.id})" class="btn-detail">Details</a>
+          <a href="${j.officialLink}" target="_blank" onclick="event.stopPropagation()" class="btn-apply">Apply →</a>
+        </div>
+      </div>
+    </div>`;
+  }).join('');
+
+  renderPagination();
+}
+
+function daysLeft(dateStr) {
+  try {
+    const parts = dateStr.split(' ');
+    const months = {Jan:0,Feb:1,Mar:2,Apr:3,May:4,Jun:5,Jul:6,Aug:7,Sep:8,Oct:9,Nov:10,Dec:11};
+    const d = new Date(parseInt(parts[2]), months[parts[1]], parseInt(parts[0]));
+    return Math.floor((d - new Date()) / 86400000);
+  } catch { return 999; }
+}
+
+function daysLeftLabel(dateStr) {
+  const d = daysLeft(dateStr);
+  if (d < 0) return '';
+  if (d === 0) return '⚠️ Last Day!';
+  if (d <= 3) return `⚠️ ${d} days left`;
+  if (d <= 7) return `${d} days left`;
+  return '';
+}
+
+function openJob(url) { window.open(url, '_blank'); }
+
+function showDetail(id) {
+  const j = JOBS.find(x => x.id === id);
+  if (!j) return;
+  alert(`📋 ${j.title}\n\nOrganization: ${j.org}\nVacancies: ${j.vacancies ? j.vacancies.toLocaleString('en-IN') : 'Various'}\nEducation: ${j.edu}\nApply Start: ${j.applyStart}\nLast Date: ${j.lastDate}\nExam Date: ${j.examDate||'TBA'}\nFee: ${j.fee||'See Official'}\nSalary: ${j.salary||'As per rules'}\n\nFor full details visit: ${j.officialLink}`);
+}
+
+/* PAGINATION */
+function renderPagination() {
+  const total = Math.ceil(filteredJobs.length / PER_PAGE);
+  if (total <= 1) { document.getElementById('pagination').innerHTML = ''; return; }
+  let html = `<button class="pg-btn pg-nav" onclick="goPage(${Math.max(1,currentPage-1)})">← Prev</button>`;
+  for (let i = 1; i <= total; i++) {
+    if (i === 1 || i === total || Math.abs(i - currentPage) <= 2) {
+      html += `<button class="pg-btn${i===currentPage?' act':''}" onclick="goPage(${i})">${i}</button>`;
+    } else if (Math.abs(i - currentPage) === 3) {
+      html += `<span style="padding:0 4px;color:var(--muted);">…</span>`;
+    }
+  }
+  html += `<button class="pg-btn pg-nav" onclick="goPage(${Math.min(total,currentPage+1)})">Next →</button>`;
+  document.getElementById('pagination').innerHTML = html;
+}
+
+function goPage(p) { currentPage = p; renderJobs(); window.scrollTo({top:300,behavior:'smooth'}); }
+
+/* FILTER */
+function setFilter(cat, el) {
+  currentFilter = cat;
+  currentPage = 1;
+  if (el) {
+    document.querySelectorAll('.chip').forEach(c => c.classList.remove('on'));
+    el.classList.add('on');
+  }
+  applyFilters();
+}
+
+function liveSearch(q) {
+  searchQuery = q.toLowerCase();
+  currentPage = 1;
+  // sync both search boxes
+  document.getElementById('nav-search').value = q;
+  document.getElementById('main-search').value = q;
+  applyFilters();
+}
+
+function sortJobs(by) {
+  if (by === 'newest') filteredJobs.sort((a,b) => b.id - a.id);
+  else if (by === 'deadline') filteredJobs.sort((a,b) => daysLeft(a.lastDate) - daysLeft(b.lastDate));
+  else if (by === 'vacancies') filteredJobs.sort((a,b) => (b.vacancies||0) - (a.vacancies||0));
+  renderJobs();
+}
+
+function applyFilters() {
+  filteredJobs = JOBS.filter(j => {
+    const catMatch = currentFilter === 'all' || j.cat === currentFilter;
+    const searchMatch = !searchQuery || j.title.toLowerCase().includes(searchQuery) || j.org.toLowerCase().includes(searchQuery) || j.state.toLowerCase().includes(searchQuery) || j.cat.toLowerCase().includes(searchQuery);
+    return catMatch && searchMatch;
+  });
+  renderJobs();
+}
+
+function subscribe() {
+  const email = document.getElementById('notify-email').value;
+  if (!email || !/\S+@\S+\.\S+/.test(email)) { alert('Please enter a valid email address.'); return; }
+  document.getElementById('sub-msg').style.display = 'block';
+  document.getElementById('notify-email').value = '';
+}
+
+// Init
+renderJobs();
+</script>
+<script src="onlyjobs-ai.js"></script>
+</body>
+</html>
