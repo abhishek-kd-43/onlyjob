@@ -242,12 +242,16 @@
     </a>
     <nav>
       <a href="#" class="active">Home</a>
+      <a href="mocktest.html" style="background:linear-gradient(135deg,#E85D04,#7C3AED);color:#fff;font-weight:700;padding:6px 14px;border-radius:6px;display:flex;align-items:center;gap:5px;">
+        <svg width="13" height="13" fill="#fff" viewBox="0 0 24 24" style="flex-shrink:0;"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        Mock Test
+        <span style="background:rgba(255,255,255,0.25);font-size:10px;padding:1px 6px;border-radius:10px;font-weight:800;">FREE</span>
+      </a>
       <a href="#">Latest Jobs</a>
       <a href="#">Results</a>
       <a href="#">Admit Card</a>
       <a href="#">Answer Key</a>
       <a href="#">Syllabus</a>
-      <a href="#" style="color:var(--accent);font-weight:700;">Mock Test</a>
     </nav>
     <div class="nav-search" style="margin-left:auto;">
       <input type="text" placeholder="Search jobs, results, exams..." />
@@ -341,27 +345,50 @@
       <div style="padding:10px 16px;border-top:1px solid var(--border);"><a href="#" class="sec-more">View All Latest Jobs →</a></div>
     </div>
 
-    <!-- RESULTS -->
-    <div class="card">
-      <div class="card-hdr">
-        <span class="card-title" style="color:var(--blue);">
-          <span class="sec-dot" style="background:var(--blue);"></span>Results
+    <!-- MOCK TEST CARD -->
+    <div class="card" style="border:2px solid transparent;background:linear-gradient(#fff,#fff) padding-box,linear-gradient(135deg,#E85D04,#7C3AED) border-box;overflow:visible;position:relative;">
+      <div style="position:absolute;top:-10px;left:16px;background:linear-gradient(135deg,#E85D04,#7C3AED);color:#fff;font-size:10px;font-weight:800;padding:3px 12px;border-radius:20px;letter-spacing:.5px;">⭐ YOUR EDGE</div>
+      <div class="card-hdr" style="background:linear-gradient(135deg,#1A1A2E,#2D2D5E);">
+        <span class="card-title" style="color:#fff;font-family:'Syne',sans-serif;">
+          <svg width="14" height="14" fill="#FDBA74" viewBox="0 0 24 24" style="margin-right:4px;"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          Mock Tests
         </span>
-        <span class="card-badge badge-blue">LIVE</span>
+        <span style="background:#FDBA74;color:#1A1A2E;font-size:10px;font-weight:800;padding:2px 8px;border-radius:20px;">FREE TRIAL</span>
       </div>
-      <div class="card-body">
-        <a class="entry" href="#"><span class="entry-dot" style="background:var(--blue);"></span><div><div class="entry-text">UPSC Civil Services IAS 2025 Final Result</div><span class="tag-new">NEW</span></div></a>
-        <a class="entry" href="#"><span class="entry-dot" style="background:var(--blue);"></span><div><div class="entry-text">GATE 2026 Result with Score Card</div><span class="tag-updated">UPDATED</span></div></a>
-        <a class="entry" href="#"><span class="entry-dot" style="background:var(--blue);"></span><div><div class="entry-text">Bihar Board 12th Result 2026</div><span class="tag-new">NEW</span></div></a>
-        <a class="entry" href="#"><span class="entry-dot" style="background:var(--blue);"></span><div><div class="entry-text">SSC Selection Post 13th Answer Key</div></div></a>
-        <a class="entry" href="#"><span class="entry-dot" style="background:var(--blue);"></span><div><div class="entry-text">IBPS RRB 14th Office Assistant Mains</div></div></a>
-        <a class="entry" href="#"><span class="entry-dot" style="background:var(--blue);"></span><div><div class="entry-text">NTA NIFTEE 2026 Result</div></div></a>
-        <a class="entry" href="#"><span class="entry-dot" style="background:var(--blue);"></span><div><div class="entry-text">Indian Airforce AFCAT 01/2026 Result</div></div></a>
-        <a class="entry" href="#"><span class="entry-dot" style="background:var(--blue);"></span><div><div class="entry-text">SSC JE 2025 Paper I Result</div></div></a>
-        <a class="entry" href="#"><span class="entry-dot" style="background:var(--blue);"></span><div><div class="entry-text">IIT JAM 2026 Result / Score Card</div></div></a>
-        <a class="entry" href="#"><span class="entry-dot" style="background:var(--blue);"></span><div><div class="entry-text">India Post GDS First Merit List 2026</div></div></a>
+      <div style="padding:12px 14px 6px;">
+        <!-- exam categories -->
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-bottom:10px;">
+          <a href="mocktest.html?exam=upsc" style="background:var(--blue-light);border:1.5px solid #BFDBFE;border-radius:8px;padding:9px 10px;text-decoration:none;display:flex;align-items:center;gap:7px;transition:all .15s;" onmouseover="this.style.borderColor='#1D4ED8'" onmouseout="this.style.borderColor='#BFDBFE'">
+            <span style="font-size:18px;">🏛️</span>
+            <div><div style="font-size:12.5px;font-weight:700;color:var(--blue);">UPSC</div><div style="font-size:10px;color:var(--muted);">48 tests</div></div>
+          </a>
+          <a href="mocktest.html?exam=ssc" style="background:#FFF3EB;border:1.5px solid #FED7AA;border-radius:8px;padding:9px 10px;text-decoration:none;display:flex;align-items:center;gap:7px;transition:all .15s;" onmouseover="this.style.borderColor='#E85D04'" onmouseout="this.style.borderColor='#FED7AA'">
+            <span style="font-size:18px;">📋</span>
+            <div><div style="font-size:12.5px;font-weight:700;color:var(--accent-dark);">SSC</div><div style="font-size:10px;color:var(--muted);">120 tests</div></div>
+          </a>
+          <a href="mocktest.html?exam=railway" style="background:var(--green-light);border:1.5px solid #A7F3D0;border-radius:8px;padding:9px 10px;text-decoration:none;display:flex;align-items:center;gap:7px;transition:all .15s;" onmouseover="this.style.borderColor='#059669'" onmouseout="this.style.borderColor='#A7F3D0'">
+            <span style="font-size:18px;">🚂</span>
+            <div><div style="font-size:12.5px;font-weight:700;color:var(--green);">Railway</div><div style="font-size:10px;color:var(--muted);">200 tests</div></div>
+          </a>
+          <a href="mocktest.html?exam=banking" style="background:var(--purple-light);border:1.5px solid #DDD6FE;border-radius:8px;padding:9px 10px;text-decoration:none;display:flex;align-items:center;gap:7px;transition:all .15s;" onmouseover="this.style.borderColor='#7C3AED'" onmouseout="this.style.borderColor='#DDD6FE'">
+            <span style="font-size:18px;">🏦</span>
+            <div><div style="font-size:12.5px;font-weight:700;color:var(--purple);">Banking</div><div style="font-size:10px;color:var(--muted);">85 tests</div></div>
+          </a>
+        </div>
+        <!-- live leaderboard strip -->
+        <div style="background:var(--bg2);border-radius:8px;padding:10px 12px;margin-bottom:8px;">
+          <div style="font-size:10px;font-weight:700;color:var(--muted);letter-spacing:.5px;margin-bottom:7px;">🏆 TODAY'S TOP SCORERS</div>
+          <div style="display:flex;flex-direction:column;gap:5px;">
+            <div style="display:flex;align-items:center;gap:8px;font-size:12.5px;"><span style="color:#F59E0B;font-weight:800;width:16px;">1</span><span style="flex:1;color:var(--dark);">Rahul S., UP</span><span style="font-weight:700;color:var(--green);">98/100</span></div>
+            <div style="display:flex;align-items:center;gap:8px;font-size:12.5px;"><span style="color:#9CA3AF;font-weight:800;width:16px;">2</span><span style="flex:1;color:var(--dark);">Priya M., Bihar</span><span style="font-weight:700;color:var(--green);">96/100</span></div>
+            <div style="display:flex;align-items:center;gap:8px;font-size:12.5px;"><span style="color:#9CA3AF;font-weight:800;width:16px;">3</span><span style="flex:1;color:var(--dark);">Amit K., MP</span><span style="font-weight:700;color:var(--green);">95/100</span></div>
+          </div>
+        </div>
       </div>
-      <div style="padding:10px 16px;border-top:1px solid var(--border);"><a href="#" class="sec-more">View All Results →</a></div>
+      <div style="padding:10px 16px;border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;">
+        <a href="mocktest.html" style="background:linear-gradient(135deg,#E85D04,#C44D00);color:#fff;font-size:13px;font-weight:700;padding:8px 18px;border-radius:7px;text-decoration:none;">Start Free Test →</a>
+        <a href="mocktest.html#plans" style="font-size:12px;color:var(--purple);font-weight:600;">₹99/month →</a>
+      </div>
     </div>
 
     <!-- ADMIT CARD -->
@@ -568,5 +595,57 @@
   }
 </script>
 
+<!-- ── POPUP AD ── -->
+<div id="popup-overlay" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.65);z-index:99990;align-items:center;justify-content:center;padding:20px;animation:fadeIn .3s ease;">
+  <div style="background:#fff;border-radius:20px;max-width:460px;width:100%;overflow:hidden;box-shadow:0 24px 80px rgba(0,0,0,0.35);animation:slideUp .35s cubic-bezier(.34,1.3,.64,1);">
+    <!-- top banner -->
+    <div style="background:linear-gradient(135deg,#1A1A2E 0%,#3730A3 100%);padding:28px 28px 20px;position:relative;">
+      <button onclick="closePopup()" style="position:absolute;top:14px;right:14px;background:rgba(255,255,255,0.12);border:none;color:#fff;width:30px;height:30px;border-radius:8px;font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;">✕</button>
+      <div style="display:inline-flex;align-items:center;gap:6px;background:rgba(253,186,116,0.2);border:1px solid rgba(253,186,116,0.4);color:#FDBA74;padding:4px 12px;border-radius:20px;font-size:11px;font-weight:700;margin-bottom:12px;letter-spacing:.5px;">🔥 LIMITED TIME OFFER</div>
+      <h2 style="font-family:'Syne',sans-serif;font-size:24px;font-weight:800;color:#fff;line-height:1.2;margin-bottom:8px;">Crack Your Govt Exam <span style="color:#FDBA74;">This Year!</span></h2>
+      <p style="color:#94A3B8;font-size:13.5px;line-height:1.6;">Join 4.8 Cr+ aspirants already using OnlyJobs. Practice with 500+ mock tests, get live national rankings & expert study plans.</p>
+    </div>
+    <!-- features -->
+    <div style="padding:20px 28px;border-bottom:1px solid #F0F2F8;">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
+        <div style="display:flex;align-items:center;gap:8px;font-size:13px;color:#374151;"><span style="width:24px;height:24px;background:#ECFDF5;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:13px;flex-shrink:0;">✅</span>500+ Mock Tests</div>
+        <div style="display:flex;align-items:center;gap:8px;font-size:13px;color:#374151;"><span style="width:24px;height:24px;background:#EFF6FF;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:13px;flex-shrink:0;">🏆</span>Live Rankings</div>
+        <div style="display:flex;align-items:center;gap:8px;font-size:13px;color:#374151;"><span style="width:24px;height:24px;background:#FFF3EB;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:13px;flex-shrink:0;">📅</span>Study Plans</div>
+        <div style="display:flex;align-items:center;gap:8px;font-size:13px;color:#374151;"><span style="width:24px;height:24px;background:#F5F3FF;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:13px;flex-shrink:0;">📰</span>Daily Job Alerts</div>
+      </div>
+    </div>
+    <!-- CTA -->
+    <div style="padding:20px 28px;display:flex;flex-direction:column;gap:10px;">
+      <a href="mocktest.html" onclick="closePopup()" style="display:block;text-align:center;background:linear-gradient(135deg,#E85D04,#C44D00);color:#fff;padding:14px;border-radius:10px;font-size:15px;font-weight:700;text-decoration:none;letter-spacing:.2px;">🚀 Start Free Mock Test Now</a>
+      <a href="mocktest.html#plans" onclick="closePopup()" style="display:block;text-align:center;background:#F5F3FF;color:#7C3AED;padding:12px;border-radius:10px;font-size:14px;font-weight:700;text-decoration:none;">Get Full Access @ ₹99/month</a>
+      <button onclick="closePopup()" style="background:none;border:none;color:#9CA3AF;font-size:12.5px;cursor:pointer;padding:4px;font-family:'Figtree',sans-serif;">No thanks, I'll miss out</button>
+    </div>
+  </div>
+</div>
+
+<style>
+@keyframes fadeIn { from{opacity:0} to{opacity:1} }
+@keyframes slideUp { from{opacity:0;transform:translateY(30px) scale(.96)} to{opacity:1;transform:translateY(0) scale(1)} }
+</style>
+
+<script>
+function closePopup() {
+  document.getElementById('popup-overlay').style.display = 'none';
+  sessionStorage.setItem('oj_popup_shown','1');
+}
+window.addEventListener('load', function() {
+  if (!sessionStorage.getItem('oj_popup_shown')) {
+    setTimeout(function() {
+      var el = document.getElementById('popup-overlay');
+      el.style.display = 'flex';
+    }, 2500);
+  }
+});
+document.getElementById('popup-overlay').addEventListener('click', function(e) {
+  if (e.target === this) closePopup();
+});
+</script>
+
+<script src="onlyjobs-ai.js"></script>
 </body>
 </html>
