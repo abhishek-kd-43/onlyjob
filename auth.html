@@ -501,7 +501,12 @@ function showDashboard(user){
   $('form-signup').className='auth-form';
   const dash=$('dashboard');dash.className='dashboard show';
   const initials=(user.fname[0]+(user.lname?user.lname[0]:'')).toUpperCase();
+  if(user.picture){
+  $('dash-av').innerHTML='<img src="'+user.picture+'" style="width:52px;height:52px;border-radius:50%;object-fit:cover;" />';
+  $('dash-av').style.background='none';
+}else{
   $('dash-av').textContent=initials;
+}
   $('dash-name').textContent=user.fname+(user.lname?' '+user.lname:'');
   $('dash-sub').textContent=(user.exam||'Aspirant')+' · '+(user.state||'India')+' · Joined '+user.joined;
   loadScores();
