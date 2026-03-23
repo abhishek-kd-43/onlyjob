@@ -563,6 +563,105 @@ document.addEventListener('keydown',(e)=>{
   }
 });
 </script>
+<!-- Google Identity Services -->
+<script src="https://accounts.google.com/gsi/client" async defer></script>
+<script>
+/* ── PASTE YOUR CLIENT ID HERE ── */
+var G_CLIENT_ID = 'YOUR_CLIENT_ID_HERE.apps.googleusercontent.com';
 
+function initGoogleSignIn() {
+  if (!window.google) return;
+  google.accounts.id.initialize({
+    client_id: G_CLIENT_ID,
+    callback: handleGoogleResponse,
+    auto_select: false,
+    cancel_on_tap_outside: true
+  });
+
+  /* Render button in Login form */
+  google.accounts.id.renderButton(
+    document.getElementById('g_signin_login'),
+    {
+      theme: 'outline',
+      size: 'large',
+      width: 360,
+      text: 'signin_with',
+      shape: 'rectangular',
+      logo_alignment: 'center'
+    }
+  );
+
+  /* Render button in Signup form */
+  google.accounts.id.renderButton(
+    document.getElementById('g_signin_signup'),
+    {
+      theme: 'outline',
+      size: 'large',
+      width: 360,
+      text: 'signup_with',
+      shape: 'rectangular',
+      logo_alignment: 'center'
+    }
+  );
+}
+
+function handleGoogleResponse(response) {
+  /* Decode the JWT token from Google */
+  var parts = response.credential.split('.');
+  var payload = JSON.parse(atob(parts[1]));
+
+  var email = payload.email;
+  var fname = payload.given_name || payload.name.split(' ')[0];
+  var lname = payload.family_name || '';
+  var picture = payload.picture;
+  var googleId = payload.sub;
+
+  /* Check if user already exists */
+  var users = getUsers();
+  var existing = users.find(function(u){ return u.email === email; });
+
+  if (existing) {
+    /* Existing user — log in */
+    existing.picture = picture;
+    saveUsers(users);
+    setCurrentUser(existing);
+    showToast('Welcome back, ' + existing.fname + '! 🎉');
+    setTimeout(function(){ showDashboard(existing); }, 600);
+  } else {
+    /* New user — auto signup */
+    var newUser = {
+      fname: fname,
+      lname: lname,
+      email: email,
+      password: '',
+      googleId: googleId,
+      picture: picture,
+      state: 'India',
+      exam: 'Multiple',
+      joined: new Date().toLocaleDateString('en-IN', {
+        year: 'numeric', month: 'short', day: 'numeric'
+      }),
+      provider: 'google'
+    };
+    users.push(newUser);
+    saveUsers(users);
+    setCurrentUser(newUser);
+    showToast('Account created with Google! Welcome, ' + fname + '! 🎉');
+    setTimeout(function(){ showDashboard(newUser); }, 600);
+  }
+}
+
+/* Load Google after page loads */
+window.addEventListener('load', function() {
+  var interval = setInterval(function() {
+    if (window.google) {
+      clearInterval(interval);
+      initGoogleSignIn();
+    }
+  }, 200);
+});
+</script>
+
+  
 </body>
 </html>
