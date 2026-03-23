@@ -16,6 +16,24 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Figtree:wght@300;400;500;600&display=swap" rel="stylesheet" />
 <style>
+.states-dropdown-wrap{position:relative;display:inline-block;}
+.states-nav-btn{font-size:13px;font-weight:600;color:var(--mu);background:none;border:none;padding:5px 10px;border-radius:6px;cursor:pointer;font-family:'Figtree',sans-serif;display:flex;align-items:center;gap:4px;}
+.states-nav-btn:hover{background:var(--al);color:var(--ad);}
+.states-nav-btn svg{transition:transform .2s;}
+.states-nav-btn.open svg{transform:rotate(180deg);}
+.states-panel{display:none;position:absolute;top:calc(100% + 8px);left:0;width:340px;background:#fff;border:1.5px solid var(--bd);border-radius:12px;box-shadow:0 8px 32px rgba(0,0,0,0.12);z-index:9999;padding:16px;animation:fadeDown .18s ease;}
+.states-panel.show{display:block;}
+@keyframes fadeDown{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:translateY(0)}}
+.sp-title{font-family:'Syne',sans-serif;font-size:12px;font-weight:700;color:var(--mu);letter-spacing:.5px;margin-bottom:10px;}
+.sp-section-label{font-size:11px;font-weight:700;color:var(--mu);margin:10px 0 6px;text-transform:uppercase;}
+.sp-grid{display:flex;flex-wrap:wrap;gap:6px;}
+.sp-btn{padding:5px 12px;background:#1D4ED8;border:none;border-radius:20px;font-size:12.5px;font-weight:600;color:#fff;cursor:pointer;font-family:'Figtree',sans-serif;text-decoration:none;display:inline-block;}
+.sp-btn:hover{background:#1e3a8a;}
+.sp-btn.sp-central{background:#1A1A2E;}
+.sp-btn.sp-ut{background:#7C3AED;}
+@media(max-width:860px){.states-dropdown-wrap{display:none;}}
+
+ 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   :root {
@@ -248,6 +266,52 @@
       <span class="logo-text">Only<span>Jobs</span></span>
     </a>
     <nav>
+    <div class="states-dropdown-wrap" id="states-wrap">
+  <button class="states-nav-btn" id="states-btn" onclick="toggleStates()">
+    States <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg>
+  </button>
+  <div class="states-panel" id="states-panel">
+    <div class="sp-title">Browse Jobs by State</div>
+    <div class="sp-section-label">Central Govt</div>
+    <div class="sp-grid">
+      <a href="statejobs.html" class="sp-btn sp-central">All India</a>
+      <a href="statejobs.html?state=Central+Govt" class="sp-btn sp-central">Central Govt</a>
+    </div>
+    <div class="sp-section-label">States</div>
+    <div class="sp-grid">
+      <a href="statejobs.html?state=Andhra+Pradesh" class="sp-btn">Andhra Pradesh</a>
+      <a href="statejobs.html?state=Assam" class="sp-btn">Assam</a>
+      <a href="statejobs.html?state=Bihar" class="sp-btn">Bihar</a>
+      <a href="statejobs.html?state=Chhattisgarh" class="sp-btn">Chhattisgarh</a>
+      <a href="statejobs.html?state=Delhi" class="sp-btn">Delhi</a>
+      <a href="statejobs.html?state=Gujarat" class="sp-btn">Gujarat</a>
+      <a href="statejobs.html?state=Haryana" class="sp-btn">Haryana</a>
+      <a href="statejobs.html?state=Himachal+Pradesh" class="sp-btn">Himachal Pradesh</a>
+      <a href="statejobs.html?state=Jharkhand" class="sp-btn">Jharkhand</a>
+      <a href="statejobs.html?state=Karnataka" class="sp-btn">Karnataka</a>
+      <a href="statejobs.html?state=Kerala" class="sp-btn">Kerala</a>
+      <a href="statejobs.html?state=Madhya+Pradesh" class="sp-btn">Madhya Pradesh</a>
+      <a href="statejobs.html?state=Maharashtra" class="sp-btn">Maharashtra</a>
+      <a href="statejobs.html?state=Odisha" class="sp-btn">Odisha</a>
+      <a href="statejobs.html?state=Punjab" class="sp-btn">Punjab</a>
+      <a href="statejobs.html?state=Rajasthan" class="sp-btn">Rajasthan</a>
+      <a href="statejobs.html?state=Tamil+Nadu" class="sp-btn">Tamil Nadu</a>
+      <a href="statejobs.html?state=Telangana" class="sp-btn">Telangana</a>
+      <a href="statejobs.html?state=Uttar+Pradesh" class="sp-btn">Uttar Pradesh</a>
+      <a href="statejobs.html?state=Uttarakhand" class="sp-btn">Uttarakhand</a>
+      <a href="statejobs.html?state=West+Bengal" class="sp-btn">West Bengal</a>
+    </div>
+    <div class="sp-section-label">Union Territories</div>
+    <div class="sp-grid">
+      <a href="statejobs.html?state=Jammu+%26+Kashmir" class="sp-btn sp-ut">J&amp;K</a>
+      <a href="statejobs.html?state=Ladakh" class="sp-btn sp-ut">Ladakh</a>
+      <a href="statejobs.html?state=Chandigarh" class="sp-btn sp-ut">Chandigarh</a>
+      <a href="statejobs.html?state=Puducherry" class="sp-btn sp-ut">Puducherry</a>
+    </div>
+  </div>
+</div>
+
+     
       <a href="#" class="active">Home</a>
       <a href="mocktest.html" style="background:linear-gradient(135deg,#E85D04,#7C3AED);color:#fff;font-weight:700;padding:6px 14px;border-radius:6px;display:flex;align-items:center;gap:5px;">
         <svg width="13" height="13" fill="#fff" viewBox="0 0 24 24" style="flex-shrink:0;"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
@@ -677,6 +741,12 @@ window.addEventListener('appinstalled',function(){
   var b=document.getElementById('ojb');if(b)b.remove();
 });
 </script>
+<script>
+function toggleStates(){var p=document.getElementById('states-panel');var b=document.getElementById('states-btn');var o=p.classList.contains('show');if(o){p.classList.remove('show');b.classList.remove('open');}else{p.classList.add('show');b.classList.add('open');}}
+function closeStates(){document.getElementById('states-panel').classList.remove('show');document.getElementById('states-btn').classList.remove('open');}
+document.addEventListener('click',function(e){var w=document.getElementById('states-wrap');if(w&&!w.contains(e.target)){closeStates();}});
+</script>
+
 </body>
  
 </html>
